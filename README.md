@@ -44,7 +44,7 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 - [Deletar usuário](#deletar_telefone)
 
 ## Telefone
-- [Listar telefones por ID ](#listar_telefone_por_id)
+- [Listar telefones ](#listar_telefone)
 - [Cadastrar telefone](#cadastar_telefone_usuario)
 - [Atualizar telefone](#atualizar_usuário)
 - [Deletar telefone](#deletar_telefone)
@@ -63,7 +63,7 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 - [Deletar produto](#deletar_produto)
 
 ## Endereço
-- [Listar endereços por ID ](#listar_enderecos_por_id)
+- [Listar endereços](#listar_enderecos)
 - [Cadastrar endereço](#cadastrar_endereco)
 - [Atualizar endereço](#atualizar_endereco)
 - [Deletar endereço](#deletar_endereco)
