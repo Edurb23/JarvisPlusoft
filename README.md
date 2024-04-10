@@ -37,11 +37,11 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 # Endpoints
 
 ## Usuario
-- [Login](#login)
-- [Buscar usuário](#buscar_usuário)
-- [Cadastrar usuário](#cadastrar_usuário)
-- [Atualizar usuário](#atualizar_usuário)
-- [Deletar usuário](#deletar_telefone)
+- [Listagem de Cliente](#login)
+- [Buscar Cliente](#buscar_usuário)
+- [Cadastrar Cliente](#cadastrar_usuário)
+- [Atualizar Cliente](#atualizar_usuário)
+- [Deletar Cliente](#deletar_telefone)
 
 ## Telefone
 - [Listar telefones ](#listar_telefone)
