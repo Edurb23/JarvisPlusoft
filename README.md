@@ -1,7 +1,7 @@
 # Challenge-Java
 
 # Apresentação do projeto J.A.R.V.I.S
-Este é o repositório do Projeto ???, dividido em partes entre frontend e backend. O backend, com foco principalmente em Java, foi liderado por Eduardo Reis durante toda a primeira fase de entrega.
+Este é o repositório do Projeto ???, dividido em partes entre frontend e backend. O backend, com foco principalmente em Java, foi liderado por Eduardo Reis Braga durante toda a primeira fase de entrega.
 
 Temos como objeto, desenvolver algoritmos avançados de análise de
 comportamento do consumidor com base em dados de compras anteriores, interações
@@ -37,8 +37,8 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 # Endpoints
 
 ## Cliente
-- [Listagem de Cliente](#login)
-- [Buscar Cliente](#buscar_usuário)
+- [Listagem de Cliente](#listar_cliente)
+- [Buscar Cliente](#buscar usuário)
 - [Cadastrar Cliente](#cadastrar_usuário)
 - [Atualizar Cliente](#atualizar_usuário)
 - [Deletar Cliente](#deletar_telefone)
@@ -96,6 +96,21 @@ DELETE
 - não há corpo de resposta 
 - http responses
 ---
+
+### listar_cliente
+
+`GET` /localhost:8080/cliente
+
+**Exemplo Corpo de resposta**
+```JSON
+{
+    "id": 1,
+    "nome": "Ronaldo",
+    "cpf": "50189933089",
+    "rg": "111631221"
+    "dataNascimento": "1995-07-20",
+    "senha": "1234",
+}
 
   
 
