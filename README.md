@@ -1,7 +1,7 @@
 # Challenge-Java
 
 # Apresentação do projeto J.A.R.V.I.S
-Este é o repositório do Projeto ???, dividido em partes entre frontend e backend. O backend, com foco principalmente em Java, foi liderado por Eduardo Reis Braga durante toda a primeira fase de entrega.
+Este é o repositório do Projeto J.A.R.V.I.S, dividido em partes entre frontend e backend. O backend, com foco principalmente em Java, foi liderado por Eduardo Reis Braga durante toda a primeira fase de entrega.
 
 Temos como objeto, desenvolver algoritmos avançados de análise de
 comportamento do consumidor com base em dados de compras anteriores, interações
