@@ -36,5 +36,42 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 
 # EndPoints
 
+# Endpoints
+
+## Usuario
+- [Login](#login)
+- [Buscar usuário](#buscar_usuário)
+- [Cadastrar usuário](#cadastrar_usuário)
+- [Atualizar usuário](#atualizar_usuário)
+- [Deletar usuário](#deletar_telefone)
+
+## Telefone
+- [Listar telefones por ID de usuário](#listar_telefone_por_id)
+- [Cadastrar telefone](#cadastar_telefone_usuario)
+- [Atualizar telefone](#atualizar_usuário)
+- [Deletar telefone](#deletar_telefone)
+
+## Email
+- [ID do Email](#id_do_email)
+- [Cadastrar email](#cadastar_email_usuario)
+- [Atualizar email](#atualizar_usuário)
+- [Deletar email](#deletar_email)
+
+## Produto
+- [Listar produtos](#listar_produtos)
+- [Buscar produto por ID](#buscar_produto_por_id)
+- [Cadastrar produto](#cadastrar_produto)
+- [Atualizar produto](#atualizar_produto)
+- [Deletar produto](#deletar_produto)
+
+## Endereço
+- [Listar endereços por ID de usuário](#listar_enderecos_por_id)
+- [Cadastrar endereço](#cadastrar_endereco)
+- [Atualizar endereço](#atualizar_endereco)
+- [Deletar endereço](#deletar_endereco)
+  
+
+  
+
 
 
