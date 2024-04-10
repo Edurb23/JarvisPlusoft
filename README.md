@@ -2,5 +2,11 @@
 
 # Apresentação do projeto J.A.R.V.I.S
 
-# Cronograma
+# Cronograma(#login)
+
+# Digramas
+
+# Video Prosposta
+
+# EndPoints
 
