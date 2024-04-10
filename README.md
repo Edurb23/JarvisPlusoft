@@ -2,7 +2,7 @@
 
 # Apresentação do projeto J.A.R.V.I.S
 
-# Cronograma(#login)
+# Cronograma
 
 # Digramas
 
