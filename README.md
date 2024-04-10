@@ -36,7 +36,7 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 
 # Endpoints
 
-## Usuario
+## Cliente
 - [Listagem de Cliente](#login)
 - [Buscar Cliente](#buscar_usuário)
 - [Cadastrar Cliente](#cadastrar_usuário)
