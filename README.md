@@ -4,11 +4,11 @@
 Este é o repositório do Projeto ???, dividido em partes entre frontend e backend. O backend, com foco principalmente em Java, foi liderado por Eduardo Reis durante toda a primeira fase de entrega.
 
 # Contribuidores
-Raphael Pabst  rm98525
-Silvio Junior rm550821
-Pedro Braga  rm551061
-Eduardo Reis Braga rm551987
-Gustavo Bernardo rm93770
+- Raphael Pabst  rm98525
+- Silvio Junior rm550821
+- Pedro Braga  rm551061
+- Eduardo Reis Braga rm551987
+- Gustavo Bernardo rm93770
 
 # Prazo de Entrega
 
