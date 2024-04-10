@@ -34,8 +34,6 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 
 # Video Prosposta
 
-# EndPoints
-
 # Endpoints
 
 ## Usuario
