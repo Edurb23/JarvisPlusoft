@@ -8,6 +8,8 @@ comportamento do consumidor com base em dados de compras anteriores, interaçõe
 online e preferências de estilo, entre outros, para entender melhor as necessidades e
 preferências dos clientes visando oferecer uma experiência de compra altamente
 personalizada.
+
+
 Além disso, nossa solução buscará identificar padrões de comportamento de
 compra para prever tendências futuras, permitindo-nos adaptar o estoque e as estratégias
 de marketing de acordo, garantindo uma oferta alinhada com as expectativas do
