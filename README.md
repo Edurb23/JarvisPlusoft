@@ -68,6 +68,34 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 - [Atualizar endereço](#atualizar_endereco)
 - [Deletar endereço](#deletar_endereco)
   
+---
+padrão
+
+GET 
+- endpoint
+- exemplo corpo de resposta
+- http responses
+
+POST
+- endpoint
+- tabela de atributos para request
+- exemplo corpo de request
+- exemplo corpo de resposta 
+- http responses
+
+PUT
+- endpoint
+- tabela de atributos para request
+- exemplo corpo de request
+- exemplo corpo de resposta 
+- http responses
+
+DELETE
+- endpoint 
+- exemplo de request 
+- não há corpo de resposta 
+- http responses
+---
 
   
 
