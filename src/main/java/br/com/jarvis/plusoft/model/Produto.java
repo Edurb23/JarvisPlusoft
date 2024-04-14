@@ -32,7 +32,8 @@ public class Produto {
 
 
     @Column(name = "NR_TAMANHO", length = 25, nullable = false)
-    private String tamanhoProduto;
+    @Enumerated(EnumType.STRING)
+    private TamanhoProduto tamanhoProduto;
 
     @Column(name = "NR_PRECO", precision = 10)
     private Double preco;
