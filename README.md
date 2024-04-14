@@ -109,6 +109,9 @@ DELETE
 - http responses
 ---
 
+
+## Cliente
+
 ### listar_cliente
 
 `GET` /localhost:8080/cliente
@@ -298,6 +301,127 @@ Retorna um arquivo JSON vazio.
 ---
 
 
+###Listar telefone
+`GET` /localhost:8080/telefone
+
+**Exemplo Corpo de resposta**
+```JSON
+[
+	{
+		"id": 1,
+		"numeroTelefone": "97684-9954",
+		"ddd": "11",
+		"operadora": "Vivo-Celular"
+	},
+	{
+		"id": 2,
+		"numeroTelefone": "98156-8733",
+		"ddd": "11",
+		"operadora": "Claro-Celular"
+	},
+	{
+		"id": 3,
+		"numeroTelefone": "96992-5122",
+		"ddd": "11",
+		"operadora": "Tim-Celular"
+	}
+]
+```
+**HTTP responses para `GET`**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
+---
+
+### Cadastrar_Telefone
+
+  `POST` /localhost:8080/telefone
+
+  **Atributos do request**
+|        Campo         |   Tipo   | Obrigatorio |  Descrição
+|----------------------|----------|:-----------:|--------------------------------------------------|
+|  NUMERO               |  String  |     Sim     | Campo para inserir numero de telefone
+|  DDD                |   String    |     Sim     | Campo para inserir o DDD do telefone
+|  OPERADORA                  |   String    |     Sim     | Campo para inserir a operadora
+
+**Exemplo Corpo do request** 
+
+```JSON
+
+{
+    
+	 "numeroTelefone": "96992-5122",
+        "ddd": "11",
+        "operadora": "Tim-Celular"
+	
+    }
+
+```
+
+**Status 200 ok**
+---
+**Exemplo corpo de resposta**
+
+```JSON
+
+{
+	"id": 3,
+	"numeroTelefone": "96992-5122",
+	"ddd": "11",
+	"operadora": "Tim-Celular"
+}
+```
+
+
+### Atualizar_Telefone
+
+`PUT` /localhost:8080/telefone/{id}
+
+  **Atributos do request**
+|        Campo         |   Tipo   | Obrigatorio |  Descrição
+|----------------------|----------|:-----------:|--------------------------------------------------|
+|  NUMERO               |  String  |     Sim     | Campo para inserir numero de telefone
+|  DDD                |   String    |     Sim     | Campo para inserir o DDD do telefone
+|  OPERADORA                  |   String    |     Sim     | Campo para inserir a operadora
+
+```JSON
+
+{
+    
+	 "numeroTelefone": "96992-5122",
+        "ddd": "11",
+        "operadora": "Claro-Celular"
+	
+    }
+
+```
+
+**Status 200 ok**
+---
+**Exemplo corpo de resposta**
+
+```JSON
+
+{
+	"id": 3,
+	"numeroTelefone": "96992-5122",
+	"ddd": "11",
+	"operadora": "Claro-Celular"
+}
+```
+
+**Respostas que podem aparecer no PUT :**
+| Código | Descrição |
+|---|---|
+| `204` | Requisição executada com sucesso (success)|
+| `400` | Erros de validação ou os campos informados não existem no sistema|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `405` | Método não implementado.|
+| `500` | Internal server error|
+---
 
 
 
