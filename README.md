@@ -46,8 +46,8 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 ## Cliente
 - [Listagem de Cliente](#listar_cliente)
 - [Buscar Cliente](#buscar_usuário)
-- [Cadastrar Cliente](#cadastrar_usuário)
-- [Atualizar Cliente](#atualizar_usuário)
+- [Cadastrar Cliente](#Cadastrar_Cliente)
+- [Atualizar Cliente](#Atualizar_Cliente)
 - [Deletar Cliente](#deletar_telefone)
 
 ## Telefone
