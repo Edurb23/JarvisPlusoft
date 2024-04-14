@@ -45,22 +45,29 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 
 ## Cliente
 - [Listagem de Cliente](#listar_cliente)
-- [Buscar Cliente](#buscar_usuário)
+- [Buscar Cliente](#Bucar_cliente)
 - [Cadastrar Cliente](#Cadastrar_Cliente)
 - [Atualizar Cliente](#Atualizar_Cliente)
-- [Deletar Cliente](#deletar_telefone)
+- [Deletar Cliente](#Deletar_Cliente)
 
 ## Telefone
-- [Listar telefones ](#listar_telefone)
-- [Cadastrar telefone](#cadastar_telefone_usuario)
-- [Atualizar telefone](#atualizar_usuário)
-- [Deletar telefone](#deletar_telefone)
+- [Listar telefones ](#Listar_Telefone)
+- [Cadastrar telefone](#Cadastar_Telefone)
+- [Atualizar telefone](#Atualizar_Telefone)
+- [Deletar telefone](#Deletar_Telefone)
 
 ## Email
-- [Listar_email](#listar_email)
-- [Cadastrar email](#cadastar_email_usuario)
-- [Atualizar email](#atualizar_usuário)
-- [Deletar email](#deletar_email)
+- [Listar_email](#Listar_Email)
+- [Cadastrar email](#Cadastar_Email)
+- [Atualizar email](#Atualizar_Email)
+- [Deletar email](#Deletar_Email)
+
+## Endereço
+- [Listar endereços](#listar_enderecos)
+- [Cadastrar endereço](#cadastrar_endereco)
+- [Atualizar endereço](#atualizar_endereco)
+- [Deletar endereço](#deletar_endereco)
+
 
 ## Produto
 - [Listar produtos](#listar_produtos)
@@ -69,11 +76,7 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 - [Atualizar produto](#atualizar_produto)
 - [Deletar produto](#deletar_produto)
 
-## Endereço
-- [Listar endereços](#listar_enderecos)
-- [Cadastrar endereço](#cadastrar_endereco)
-- [Atualizar endereço](#atualizar_endereco)
-- [Deletar endereço](#deletar_endereco)
+
 
 ## Pagamento
 - [Listar pagamento](#listar_pagamento)
@@ -508,7 +511,7 @@ Retorna um arquivo JSON vazio.
 
 {
     
-		 	 "email": "playboiC@hotmail.com",
+	 "email": "playboiC@hotmail.com",
         "dadosEmail": "playboiC@hotmail.com",
         "statusEmail": "ativo"
     }
@@ -550,7 +553,7 @@ Retorna um arquivo JSON vazio.
 ```JSON
 
 {
-   			 	 "email": "playboiC@hotmail.com",
+	"email": "playboiC@hotmail.com",
         "dadosEmail": "playboiC@hotmail.com",
         "statusEmail": "inativo"
 	
@@ -599,6 +602,505 @@ Retorna um arquivo JSON vazio.
 | `500` | Internal server error|
 ---
 
+### Listar_Endereco 
+
+`GET` /localhost:8080/endereco
+
+**Exemplo Corpo de resposta**
+```JSON
+[
+	{
+		"id": 52,
+		"nomeRua": "Rua Pereira Estéfano",
+		"numeroResidencia": "320",
+		"nomeBairro": "Vila da Saúde"
+	},
+	{
+		"id": 53,
+		"nomeRua": "Rua Doutor João Goulart",
+		"numeroResidencia": "20",
+		"nomeBairro": "ÁGUA RASA"
+	},
+	{
+		"id": 54,
+		"nomeRua": "Av Lins de vasconcelos",
+		"numeroResidencia": "1222",
+		"nomeBairro": "Aclimação"
+	},
+	{
+		"id": 55,
+		"nomeRua": "Rua da Gloria",
+		"numeroResidencia": "50",
+		"nomeBairro": "Liberdade"
+	},
+	{
+		"id": 56,
+		"nomeRua": "Rua da Gloria",
+		"numeroResidencia": "50",
+		"nomeBairro": "Liberdade"
+	},
+	{
+		"id": 57,
+		"nomeRua": "Rua frei caneca",
+		"numeroResidencia": "445",
+		"nomeBairro": "Consolação"
+	},
+	{
+		"id": 58,
+		"nomeRua": "Rua barão de campinas",
+		"numeroResidencia": "40",
+		"nomeBairro": "Bom Retiro"
+	},
+	{
+		"id": 1,
+		"nomeRua": "Rua curupace",
+		"numeroResidencia": "240",
+		"nomeBairro": "Mocca"
+	},
+	{
+		"id": 954,
+		"nomeRua": "Av Lins de vasconcelos",
+		"numeroResidencia": "1222",
+		"nomeBairro": "Aclimação"
+	},
+	{
+		"id": 952,
+		"nomeRua": "Rua Pereira Estéfano",
+		"numeroResidencia": "320",
+		"nomeBairro": "Vila da Saúde"
+	},
+	{
+		"id": 953,
+		"nomeRua": "Rua Doutor João Goulart",
+		"numeroResidencia": "20",
+		"nomeBairro": "ÁGUA RASA"
+	},
+	{
+		"id": 955,
+		"nomeRua": "Rua da Gloria",
+		"numeroResidencia": "50",
+		"nomeBairro": "Liberdade"
+	},
+	{
+		"id": 956,
+		"nomeRua": "Rua da Gloria",
+		"numeroResidencia": "50",
+		"nomeBairro": "Liberdade"
+	}
+]
+
+```
+
+**HTTP responses para `GET`**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
+---
+
+### cadastrar_endereco
+
+  `POST` /localhost:8080/enderco
+
+  **Atributos do request**
+|        Campo         |   Tipo   | Obrigatorio |  Descrição
+|----------------------|----------|:-----------:|--------------------------------------------------|
+|  NOME DA RUA             |  String  |     Sim     | Campo para inserir o nome da rua
+|  NUMERO DA RESIDENCIA            |   String    |     Sim     | Campo para inserir o numero da residencia
+|  NOME DO BAIRRO                  |   String    |     Sim     | Campo para inserir o nome do bairro
+
+**Exemplo Corpo do request** 
+
+```JSON
+
+{
+    
+	"nomeRua": "Rua da Gloria",
+        "numeroResidencia": "50",
+        "nomeBairro": "Liberdade"
+    }
+
+```
+
+**Status 200 ok**
+---
+**Exemplo corpo de resposta**
+
+```JSON
+
+{
+	"id": 956,
+	"nomeRua": "Rua da Gloria",
+	"numeroResidencia": "50",
+	"nomeBairro": "Liberdade"
+}
+```
+**HTTP responses para POST**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
+
+### atualizar_endereco
+
+`PUT` /localhost:8080/endereco/{id}
+
+  **Atributos do request**
+|        Campo         |   Tipo   | Obrigatorio |  Descrição
+|----------------------|----------|:-----------:|--------------------------------------------------|
+|  NOME DA RUA             |  String  |     Sim     | Campo para inserir o nome da rua
+|  NUMERO DA RESIDENCIA            |   String    |     Sim     | Campo para inserir o numero da residencia
+|  NOME DO BAIRRO                  |   String    |     Sim     | Campo para inserir o nome do bairro
+
+```JSON
+
+{
+	"nomeRua": "Rua da Gloria",
+        "numeroResidencia": "100",
+        "nomeBairro": "Liberdade"
+	
+    }
+
+```
+
+**Status 200 ok**
+---
+**Exemplo corpo de resposta**
+
+```JSON
+
+{
+	"id": 956,
+	"nomeRua": "Rua da Gloria",
+	"numeroResidencia": "100",
+	"nomeBairro": "Liberdade"
+}
+```
+
+**Respostas que podem aparecer no PUT :**
+| Código | Descrição |
+|---|---|
+| `204` | Requisição executada com sucesso (success)|
+| `400` | Erros de validação ou os campos informados não existem no sistema|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `405` | Método não implementado.|
+| `500` | Internal server error|
+---
+
+### Deletar_Endereco
+
+`Delete` /localhost:8080/endereco/{id}
+
+Retorna um arquivo JSON vazio.
+
+**Respostas que podem aparecer no DELETE :**
+
+| Código | Descrição |
+|---|---|
+| `204` | Requisição executada com sucesso (success).|
+| `400` | Erros de validação ou os campos informados não existem no sistema|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `405` | Método não implementado.|
+| `500` | Internal server error|
+---
+
+
+## Produto
+
+### Listar_Produtos
+
+`GET` /localhost:8080/produto
+
+**Exemplo Corpo de resposta**
+```JSON
+[
+	{
+		"id": 952,
+		"nomeProduto": "Camisa Branca lisa",
+		"categoriaProduto": "CAMISA",
+		"tamanhoProduto": "G",
+		"preco": 250.5,
+		"descricao": "Uma camissa branca de algodao."
+	},
+	{
+		"id": 953,
+		"nomeProduto": "Calça Jeans Reta",
+		"categoriaProduto": "CALCA",
+		"tamanhoProduto": "M",
+		"preco": 400.0,
+		"descricao": "Calça Jeans Reta."
+	},
+	{
+		"id": 954,
+		"nomeProduto": "Conjuto Moletom",
+		"categoriaProduto": "MOLETOM",
+		"tamanhoProduto": "M",
+		"preco": 350.0,
+		"descricao": "Conjuto Moletom com uma calça e um blusao com a logo."
+	},
+	{
+		"id": 955,
+		"nomeProduto": "Jaqueta Jeans Preta",
+		"categoriaProduto": "JAQUETA",
+		"tamanhoProduto": "GG",
+		"preco": 350.0,
+		"descricao": "Jaqueta."
+	},
+	{
+		"id": 956,
+		"nomeProduto": "Jaqueta Jeans Preta",
+		"categoriaProduto": "JAQUETA",
+		"tamanhoProduto": "GG",
+		"preco": 350.0,
+		"descricao": "Jaqueta Preta style 80s."
+	},
+	{
+		"id": 957,
+		"nomeProduto": "Regata com estampa",
+		"categoriaProduto": "REGATA",
+		"tamanhoProduto": "P",
+		"preco": 120.0,
+		"descricao": "Regata para o verao."
+	},
+	{
+		"id": 958,
+		"nomeProduto": "Conjuto de Aneis e pusleira",
+		"categoriaProduto": "ACESSORIOS",
+		"tamanhoProduto": "P",
+		"preco": 100.0,
+		"descricao": "Conjuto de Aneis e pusleira de aço."
+	},
+	{
+		"id": 959,
+		"nomeProduto": "Camiseta punk oversize",
+		"categoriaProduto": "CAMISETA",
+		"tamanhoProduto": "M",
+		"preco": 250.0,
+		"descricao": "Camiseta punk oversize branca"
+	},
+	{
+		"id": 102,
+		"nomeProduto": "Camisa Branca lisa",
+		"categoriaProduto": "CAMISA",
+		"tamanhoProduto": "G",
+		"preco": 250.5,
+		"descricao": "Uma camissa branca de algodao."
+	},
+	{
+		"id": 103,
+		"nomeProduto": "Calça Jeans Reta",
+		"categoriaProduto": "CALCA",
+		"tamanhoProduto": "M",
+		"preco": 400.0,
+		"descricao": "Calça Jeans Reta."
+	},
+	{
+		"id": 104,
+		"nomeProduto": "Conjuto Moletom",
+		"categoriaProduto": "MOLETOM",
+		"tamanhoProduto": "M",
+		"preco": 350.0,
+		"descricao": "Conjuto Moletom com uma calça e um blusao com a logo."
+	},
+	{
+		"id": 105,
+		"nomeProduto": "Jaqueta Jeans Preta",
+		"categoriaProduto": "JAQUETA",
+		"tamanhoProduto": "GG",
+		"preco": 350.0,
+		"descricao": "Jaqueta."
+	},
+	{
+		"id": 106,
+		"nomeProduto": "Jaqueta Jeans Preta",
+		"categoriaProduto": "JAQUETA",
+		"tamanhoProduto": "GG",
+		"preco": 350.0,
+		"descricao": "Jaqueta Preta style 80s."
+	},
+	{
+		"id": 107,
+		"nomeProduto": "Shorts Preto",
+		"categoriaProduto": "SHORTS",
+		"tamanhoProduto": "P",
+		"preco": 120.0,
+		"descricao": "Shorts preto para o verao."
+	},
+	{
+		"id": 108,
+		"nomeProduto": "Regata com estampa",
+		"categoriaProduto": "REGATA",
+		"tamanhoProduto": "P",
+		"preco": 120.0,
+		"descricao": "Regata para o verao."
+	},
+	{
+		"id": 109,
+		"nomeProduto": "Conjuto de Aneis e pusleira",
+		"categoriaProduto": "ACESSORIOS",
+		"tamanhoProduto": "P",
+		"preco": 100.0,
+		"descricao": "Conjuto de Aneis e pusleira de aço."
+	},
+	{
+		"id": 110,
+		"nomeProduto": "Camiseta punk oversize",
+		"categoriaProduto": "CAMISETA",
+		"tamanhoProduto": "M",
+		"preco": 250.0,
+		"descricao": "Camiseta punk oversize branca"
+	}
+]
+
+```
+**HTTP responses para `GET`**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
+---
+
+  ### Bucar_cliente 
+
+  `GET` /localhost:8080/produto/{id}
+
+  **Exemplo Corpo de resposta**
+  ```JSON
+{
+	"id": 110,
+	"nomeProduto": "Camiseta punk oversize",
+	"categoriaProduto": "CAMISETA",
+	"tamanhoProduto": "M",
+	"preco": 250.0,
+	"descricao": "Camiseta punk oversize branca"
+}
+
+```
+**HTTP responses para `GET`**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
+---
+
+### Cadastrar_Cliente
+
+  `POST` /localhost:8080/cliente/
+
+  **Atributos do request**
+|        Campo         |   Tipo   | Obrigatorio |  Descrição
+|----------------------|----------|:-----------:|--------------------------------------------------|
+|  Nome  do produto              |  String  |     Sim     | Campo para inserir nome do produto
+|  categoria do produto          |   String    |     Sim     | Campo para inserir o categoria do produto( CAMISA,CAMISETA, MOLETOM,JAQUETA,CALCA,SHORTS,REGATA,ACESSORIOS)
+|  tamanho do produto           |   String    |     Sim     | Campo para inserir o tamanho do produto( PP, P, M, G, GG,XG)
+|  preco       		|Double|     Sim     | Campo para inserir preco do produto
+|  descricao              		|   String    |     Sim     | Campo para inserir a descricao do produto
+
+
+**Exemplo Corpo do request** 
+
+```JSON
+
+{
+    
+   	"nomeProduto": "Camiseta punk oversize",
+        "categoriaProduto": "CAMISETA",
+        "tamanhoProduto": "M",
+        "preco": 250.0,
+        "descricao": "Camiseta punk oversize branca"
+    }
+```
+
+**Status 200 ok**
+---
+**Exemplo corpo de resposta**
+
+```JSON
+
+{
+	"id": 959,
+	"nomeProduto": "Camiseta punk oversize",
+	"categoriaProduto": "CAMISETA",
+	"tamanhoProduto": "M",
+	"preco": 250.0,
+	"descricao": "Camiseta punk oversize branca"
+}
+```
+**HTTP responses para POST**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
+
+
+### Atualizar_Cliente
+
+`PUT` /localhost:8080/produto/{id}
+
+  **Atributos do request**
+|        Campo         |   Tipo   | Obrigatorio |  Descrição
+|----------------------|----------|:-----------:|--------------------------------------------------|
+|  Nome  do produto              |  String  |     Sim     | Campo para inserir nome do produto
+|  categoria do produto          |   String    |     Sim     | Campo para inserir o categoria do produto( CAMISA,CAMISETA, MOLETOM,JAQUETA,CALCA,SHORTS,REGATA,ACESSORIOS)
+|  tamanho do produto           |   String    |     Sim     | Campo para inserir o tamanho do produto( PP, P, M, G, GG,XG)
+|  preco       		|Double|     Sim     | Campo para inserir preco do produto
+|  descricao              		|   String    |     Sim     | Campo para inserir a descricao do produto
+
+```JSON
+
+{
+    
+	"nomeProduto": "Camiseta punk oversize",
+	"categoriaProduto": "CAMISETA",
+	"tamanhoProduto": "P",
+	"preco": 250.0,
+	"descricao": "Camiseta punk oversize branca"
+	
+    }
+```
+
+**Status 200 ok**
+---
+**Exemplo corpo de resposta**
+
+```JSON
+
+{
+	"id": 110,
+	"nomeProduto": "Camiseta punk oversize",
+	"categoriaProduto": "CAMISETA",
+	"tamanhoProduto": "P",
+	"preco": 250.0,
+	"descricao": "Camiseta punk oversize branca"
+}
+```
+
+### Deletar_Usuário
+
+`Delete` /localhost:8080/cliente/{id}
+
+Retorna um arquivo JSON vazio.
+
+**Respostas que podem aparecer no DELETE :**
+
+| Código | Descrição |
+|---|---|
+| `204` | Requisição executada com sucesso (success).|
+| `400` | Erros de validação ou os campos informados não existem no sistema|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `405` | Método não implementado.|
+| `500` | Internal server error|
+---
 
 
 
