@@ -199,6 +199,38 @@ DELETE
 |  SENHA              	|   String    |     Sim     | Campo para inserir a Senha do cliente
 
 
+**Exemplo Corpo do request** 
+
+```JSON
+
+{
+    
+	"nome": "Cristiano",
+        "cpf": "54702324098",
+        "rg": "324205727",
+        "dataNascimento": "1985-02-05",
+	"senha":  "cristiano7portu"
+	
+    }
+```
+
+**Status 200 ok**
+**Exemplo corpo de resposta**
+
+```JSON
+
+{
+	"id": 958,
+	"nome": "Cristiano",
+	"cpf": "54702324098",
+	"rg": "324205727",
+	"datanascimento": "1985-02-05",
+	"senha": "cristiano7portu"
+}
+```
+
+
+
 
 
 
