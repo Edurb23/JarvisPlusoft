@@ -57,7 +57,7 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 - [Deletar telefone](#deletar_telefone)
 
 ## Email
-- [ID do Email](#id_do_email)
+- [Listar_email](#listar_email)
 - [Cadastrar email](#cadastar_email_usuario)
 - [Atualizar email](#atualizar_usuário)
 - [Deletar email](#deletar_email)
@@ -301,7 +301,7 @@ Retorna um arquivo JSON vazio.
 ---
 
 
-###Listar telefone
+### listar_telefone
 `GET` /localhost:8080/telefone
 
 **Exemplo Corpo de resposta**
@@ -336,7 +336,7 @@ Retorna um arquivo JSON vazio.
 | `500` | Internal server error|
 ---
 
-### Cadastrar_Telefone
+### cadastrar_Telefone
 
   `POST` /localhost:8080/telefone
 
@@ -374,9 +374,16 @@ Retorna um arquivo JSON vazio.
 	"operadora": "Tim-Celular"
 }
 ```
+**HTTP responses para POST**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
 
 
-### Atualizar_Telefone
+### atualizar_Telefone
 
 `PUT` /localhost:8080/telefone/{id}
 
@@ -422,6 +429,179 @@ Retorna um arquivo JSON vazio.
 | `405` | Método não implementado.|
 | `500` | Internal server error|
 ---
+
+### Deletar_Telefone
+
+`Delete` /localhost:8080/telefone/{id}
+
+Retorna um arquivo JSON vazio.
+
+**Respostas que podem aparecer no DELETE :**
+
+| Código | Descrição |
+|---|---|
+| `204` | Requisição executada com sucesso (success).|
+| `400` | Erros de validação ou os campos informados não existem no sistema|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `405` | Método não implementado.|
+| `500` | Internal server error|
+---
+
+### Listar_Email 
+
+`GET` /localhost:8080/email
+
+**Exemplo Corpo de resposta**
+```JSON
+[
+	{
+		"id": 1,
+		"email": "Karina@gmail.com",
+		"dadosEmail": "Karina@gmail.com",
+		"statusEmail": "ativo"
+	},
+	{
+		"id": 2,
+		"email": "Jennie@gmail.com",
+		"dadosEmail": "Jennie@gmail.com",
+		"statusEmail": "ativo"
+	},
+	{
+		"id": 3,
+		"email": "Sana@hotmail.com",
+		"dadosEmail": "sana@hotmail.com",
+		"statusEmail": "ativo"
+	},
+	{
+		"id": 4,
+		"email": "playboiC@hotmail.com",
+		"dadosEmail": "playboiC@hotmail.com",
+		"statusEmail": "ativo"
+	}
+]
+
+```
+
+**HTTP responses para `GET`**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
+---
+
+### cadastrar_email
+
+  `POST` /localhost:8080/email
+
+  **Atributos do request**
+|        Campo         |   Tipo   | Obrigatorio |  Descrição
+|----------------------|----------|:-----------:|--------------------------------------------------|
+|  EMAIL             |  String  |     Sim     | Campo para inserir o email
+|  DADOS              |   String    |     Sim     | Campo para inserir os dados do email
+|  STATUS                  |   String    |     Sim     | Campo para inserir o status do email
+
+**Exemplo Corpo do request** 
+
+```JSON
+
+{
+    
+		 	 "email": "playboiC@hotmail.com",
+        "dadosEmail": "playboiC@hotmail.com",
+        "statusEmail": "ativo"
+    }
+
+```
+
+**Status 200 ok**
+---
+**Exemplo corpo de resposta**
+
+```JSON
+
+{
+	"id": 4,
+	"email": "playboiC@hotmail.com",
+	"dadosEmail": "playboiC@hotmail.com",
+	"statusEmail": "ativo"
+}
+```
+**HTTP responses para POST**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
+
+### atualizar_email
+
+`PUT` /localhost:8080/email/{id}
+
+  **Atributos do request**
+|        Campo         |   Tipo   | Obrigatorio |  Descrição
+|----------------------|----------|:-----------:|--------------------------------------------------|
+|  EMAIL             |  String  |     Sim     | Campo para inserir o email
+|  DADOS              |   String    |     Sim     | Campo para inserir os dados do email
+|  STATUS                  |   String    |     Sim     | Campo para inserir o status do email
+
+```JSON
+
+{
+   			 	 "email": "playboiC@hotmail.com",
+        "dadosEmail": "playboiC@hotmail.com",
+        "statusEmail": "inativo"
+	
+    }
+
+```
+
+**Status 200 ok**
+---
+**Exemplo corpo de resposta**
+
+```JSON
+
+{
+	"id": 4,
+	"email": "playboiC@hotmail.com",
+	"dadosEmail": "playboiC@hotmail.com",
+	"statusEmail": "inativo"
+}
+```
+
+**Respostas que podem aparecer no PUT :**
+| Código | Descrição |
+|---|---|
+| `204` | Requisição executada com sucesso (success)|
+| `400` | Erros de validação ou os campos informados não existem no sistema|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `405` | Método não implementado.|
+| `500` | Internal server error|
+---
+
+### Deletar_Email
+
+`Delete` /localhost:8080/email/{id}
+
+Retorna um arquivo JSON vazio.
+
+**Respostas que podem aparecer no DELETE :**
+
+| Código | Descrição |
+|---|---|
+| `204` | Requisição executada com sucesso (success).|
+| `400` | Erros de validação ou os campos informados não existem no sistema|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `405` | Método não implementado.|
+| `500` | Internal server error|
+---
+
+
+
+
 
 
 
