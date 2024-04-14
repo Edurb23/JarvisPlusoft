@@ -215,6 +215,7 @@ DELETE
 ```
 
 **Status 200 ok**
+---
 **Exemplo corpo de resposta**
 
 ```JSON
@@ -228,7 +229,73 @@ DELETE
 	"senha": "cristiano7portu"
 }
 ```
+**HTTP responses para POST**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
 
+
+### Atualizar_Cliente
+
+`PUT` /localhost:8080/cliente/{id}
+
+  **Atributos do request**
+|        Campo         |   Tipo   | Obrigatorio |  Descrição
+|----------------------|----------|:-----------:|--------------------------------------------------|
+|  Nome                |  String  |     Sim     | Campo para inserir nome do cliente
+|  CPF                 |   String    |     Sim     | Campo para inserir o CPF do cliente
+|  RG                  |   String    |     Sim     | Campo para inserir o RG do cliente
+|  Data de Nas        |Local_date|     Sim     | Campo para inserir data de nascimento do cliente
+|  SENHA              	|   String    |     Sim     | Campo para inserir a Senha do cliente
+
+```JSON
+
+{
+    
+	"nome": "Cristiano",
+        "cpf": "54702324098",
+        "rg": "324205727",
+        "dataNascimento": "1985-02-05",
+	"senha":  "cristianoR7portu"
+	
+    }
+```
+
+**Status 200 ok**
+---
+**Exemplo corpo de resposta**
+
+```JSON
+
+{
+	"id": 958,
+	"nome": "Cristiano",
+	"cpf": "54702324098",
+	"rg": "324205727",
+	"datanascimento": "1985-02-05",
+	"senha": "cristianoR7portu"
+}
+```
+
+### Deletar_Usuário
+
+`Delete` /localhost:8080/cliente/{id}
+
+Retorna um arquivo JSON vazio.
+
+**Respostas que podem aparecer no DELETE :**
+
+| Código | Descrição |
+|---|---|
+| `204` | Requisição executada com sucesso (success).|
+| `400` | Erros de validação ou os campos informados não existem no sistema|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `405` | Método não implementado.|
+| `500` | Internal server error|
+---
 
 
 
