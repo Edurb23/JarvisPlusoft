@@ -78,7 +78,6 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 ## Pagamento
 - [Listar pagamento](#listar_pagamento)
 - [Cadastrar pagamento](#cadastrar_pagamento)
-- [Atualizar pagamento](#atualizar_pagamento)
 - [Deletar pagamento](#deletar_pagamento)
   
 ---
@@ -116,14 +115,40 @@ DELETE
 
 **Exemplo Corpo de resposta**
 ```JSON
-{
-    "id": 1,
-    "nome": "Ronaldo",
-    "cpf": "50189933089",
-    "rg": "111631221"
-    "dataNascimento": "1995-07-20",
-    "senha": "1234",
-}
+[
+	{
+		"id": 953,
+		"nome": "Karina",
+		"cpf": "11020301515",
+		"rg": "1234567",
+		"datanascimento": "2000-04-11",
+		"senha": "karina123"
+	},
+	{
+		"id": 954,
+		"nome": "Jennie",
+		"cpf": "23600731092",
+		"rg": "453533395",
+		"datanascimento": "1996-01-16",
+		"senha": "JennieKim123"
+	},
+	{
+		"id": 956,
+		"nome": "Sana",
+		"cpf": "31082448095",
+		"rg": "416695188",
+		"datanascimento": "1996-12-29",
+		"senha": "SanaLikey123"
+	},
+	{
+		"id": 957,
+		"nome": "Jordan Terrell",
+		"cpf": "97297676020",
+		"rg": "345316344",
+		"datanascimento": "1996-07-13",
+		"senha": "wholelott@red123"
+	}
+]
 
   
 
