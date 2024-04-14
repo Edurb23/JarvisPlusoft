@@ -34,6 +34,10 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 ## Banco de dados
 ![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/4e9dcd22-9d02-435c-80d9-18c5e1f4da94)
 
+## Diagrama de classes
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/abc90169-c6c5-4b09-a37f-1e473d1321fb)
+
+
 
 # Video Prosposta
 
