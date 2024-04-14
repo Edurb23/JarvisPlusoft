@@ -160,7 +160,32 @@ DELETE
 | `500` | Internal server error|
 ---
 
-  
+  ### Bucar_cliente 
+
+  `GET` /localhost:8080/cliente/{id}
+
+  **Exemplo Corpo de resposta**
+  ```JSON
+{
+	"id": 957,
+	"nome": "Jordan Terrell",
+	"cpf": "97297676020",
+	"rg": "345316344",
+	"datanascimento": "1996-07-13",
+	"senha": "wholelott@red123"
+}
+
+```
+**HTTP responses para `GET`**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
+---
+
+
 
 
 
