@@ -74,6 +74,12 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 - [Cadastrar endereço](#cadastrar_endereco)
 - [Atualizar endereço](#atualizar_endereco)
 - [Deletar endereço](#deletar_endereco)
+
+## Pagamento
+- [Listar pagamento](#listar_pagamento)
+- [Cadastrar pagamento](#cadastrar_pagamento)
+- [Atualizar pagamento](#atualizar_pagamento)
+- [Deletar pagamento](#deletar_pagamento)
   
 ---
 padrão
