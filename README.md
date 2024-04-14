@@ -185,6 +185,22 @@ DELETE
 | `500` | Internal server error|
 ---
 
+### Cadastrar_Cliente
+
+  `POST` /localhost:8080/cliente/
+
+  **Atributos do request**
+|        Campo         |   Tipo   | Obrigatorio |  Descrição
+|----------------------|----------|:-----------:|--------------------------------------------------|
+|  Nome                |  String  |     Sim     | Campo para inserir nome do cliente
+|  CPF                 |   String    |     Sim     | Campo para inserir o CPF do cliente
+|  RG                  |   String    |     Sim     | Campo para inserir o RG do cliente
+|  Data de Nas        |Local_date|     Sim     | Campo para inserir data de nascimento do cliente
+|  SENHA              	|   String    |     Sim     | Campo para inserir a Senha do cliente
+
+
+
+
 
 
 
