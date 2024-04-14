@@ -1103,6 +1103,109 @@ Retorna um arquivo JSON vazio.
 ---
 
 
+## Pagamento
+
+### Listar_Pagamento 
+
+`GET` /localhost:8080/pagamento
+
+**Exemplo Corpo de resposta**
+```JSON
+[
+	{
+		"id": 152,
+		"nome": "KARINA RODRIGUES",
+		"numero": 52994129913495,
+		"descricao": "CREDITO DIVIDO EM 2X",
+		"data": "2024-04-11"
+	},
+	{
+		"id": 153,
+		"nome": "CRISTIANO RODRIGUES",
+		"numero": 5290067142082335,
+		"descricao": "CREDITO DIVIDO EM 5X",
+		"data": "2024-02-14"
+	}
+]
+
+```
+
+**HTTP responses para `GET`**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
+---
+
+### cadastrar_pagamento
+
+  `POST` /localhost:8080/pagamento
+
+  **Atributos do request**
+|        Campo         |   Tipo   | Obrigatorio |  Descrição
+|----------------------|----------|:-----------:|--------------------------------------------------|
+|  Nome            |  String  |     Sim     | Campo para inserir o nome do titular
+|  Numero              |   String    |     Sim     | Campo para inserir os numeros do cartão
+|  Descricao                 |   String    |     Sim     | Campo para inserir a descrição da compra
+|  Data         |Local_date|     Sim     | Campo para inserir data da compra
+
+
+**Exemplo Corpo do request** 
+
+```JSON
+
+{
+    
+	"nome": "CRISTIANO RODRIGUES",
+        "numero": 5290067142082335,
+        "descricao": "CREDITO DIVIDO EM 5X",
+        "data": "2024-02-14"
+        
+}
+
+```
+
+**Status 200 ok**
+---
+**Exemplo corpo de resposta**
+
+```JSON
+
+{
+	"id": 153,
+	"nome": "CRISTIANO RODRIGUES",
+	"numero": 5290067142082335,
+	"descricao": "CREDITO DIVIDO EM 5X",
+	"data": "2024-02-14"
+}
+```
+**HTTP responses para POST**
+| Código | Descrição |
+|---|---|
+| `200` | Requisição executada com sucesso (success)|
+| `400` | Bad request|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `500` | Internal server error|
+
+### Deletar_Email
+
+`Delete` /localhost:8080/email/{id}
+
+Retorna um arquivo JSON vazio.
+
+**Respostas que podem aparecer no DELETE :**
+
+| Código | Descrição |
+|---|---|
+| `204` | Requisição executada com sucesso (success).|
+| `400` | Erros de validação ou os campos informados não existem no sistema|
+| `404` | Registro pesquisado não encontrado (Not found)|
+| `405` | Método não implementado.|
+| `500` | Internal server error|
+---
+
 
 
 
