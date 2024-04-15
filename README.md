@@ -24,6 +24,7 @@ mercado.
 # Prazo de Entrega
 
 O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/2024.
+o prazo final sera em novembro de 2024
 
 
 
@@ -40,6 +41,8 @@ O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/
 
 
 # Video Prosposta
+
+Link para o Video: https://youtu.be/3B3Oq7kc3yE
 
 # Endpoints
 
