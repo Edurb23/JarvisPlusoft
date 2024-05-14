@@ -1,7 +1,7 @@
 package br.com.jarvis.plusoft.model;
 
-import br.com.jarvis.plusoft.Dto.emailDto.AtualizarEmail;
-import br.com.jarvis.plusoft.Dto.emailDto.NovoEmailDto;
+import br.com.jarvis.plusoft.dto.emailDto.AtualizarEmail;
+import br.com.jarvis.plusoft.dto.emailDto.NovoEmailDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,11 +31,23 @@ public class Email {
     @Column(name = "ST_EMAIL", length = 30 ,nullable = false)
     private  String statusEmail;
 
-    public Email(NovoEmailDto novoEmailDto) {
+
+    @ManyToOne()
+    @JoinColumn(name = "ID_CLIENTE" , nullable = false)
+    private Cliente cliente;
+
+    public Email(NovoEmailDto novoEmailDto, Cliente cliente) {
         email = novoEmailDto.email();
         dadosEmail = novoEmailDto.dadosEmail();
         statusEmail = novoEmailDto.statusEmail();
+        this.cliente = cliente;
+
     }
+
+
+
+
+
 
     public void atualizacaoEmail(AtualizarEmail dto) {
         if(dto.email() != null)

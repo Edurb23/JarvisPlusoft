@@ -1,13 +1,15 @@
 package br.com.jarvis.plusoft.model;
 
-import br.com.jarvis.plusoft.Dto.produtoDto.AtualizacaoPrdotuo;
-import br.com.jarvis.plusoft.Dto.produtoDto.CadastroProdutoDto;
+import br.com.jarvis.plusoft.dto.produtoDto.AtualizacaoPrdotuo;
+import br.com.jarvis.plusoft.dto.produtoDto.CadastroProdutoDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.util.List;
 
 @Entity
 @Table(name = "TB_PL_PRODUTO")
@@ -41,6 +43,9 @@ public class Produto {
 
     @Column(name = "DS_PRODUTO", length = 150)
     private  String descricao;
+
+
+
 
     public Produto(CadastroProdutoDto cadastroProdutoDto) {
         nomeProduto = cadastroProdutoDto.nomeProduto();

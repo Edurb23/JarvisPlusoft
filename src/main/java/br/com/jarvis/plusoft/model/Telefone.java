@@ -1,14 +1,17 @@
 package br.com.jarvis.plusoft.model;
 
 
-import br.com.jarvis.plusoft.Dto.telefoneDto.AtualizacaoTelefone;
-import br.com.jarvis.plusoft.Dto.telefoneDto.NovoTelefoneDto;
+import br.com.jarvis.plusoft.dto.enderecolDto.NovoEnderecoDto;
+import br.com.jarvis.plusoft.dto.telefoneDto.AtualizacaoTelefone;
+import br.com.jarvis.plusoft.dto.telefoneDto.NovoTelefoneDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -33,11 +36,18 @@ public class Telefone {
     private String operadora;
 
 
-    public Telefone(NovoTelefoneDto novoTelefoneDto) {
+    @ManyToOne()
+    @JoinColumn(name = "ID_CLIENTE", nullable = false)
+    private Cliente cliente;
+
+
+    public Telefone(NovoTelefoneDto novoTelefoneDto, Cliente cliente) {
         numeroTelefone = novoTelefoneDto.numeroTelefone();
         ddd = novoTelefoneDto.ddd();
         operadora = novoTelefoneDto.operadora();
+        this.cliente = cliente;
     }
+
 
 
 

@@ -1,6 +1,6 @@
 package br.com.jarvis.plusoft.model;
 
-import br.com.jarvis.plusoft.Dto.PagamentoDto.NovoPagamento;
+import br.com.jarvis.plusoft.dto.pagamentoDto.NovoPagamento;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

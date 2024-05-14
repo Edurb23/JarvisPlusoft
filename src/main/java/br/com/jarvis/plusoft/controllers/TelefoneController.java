@@ -1,12 +1,13 @@
 package br.com.jarvis.plusoft.controllers;
 
-import br.com.jarvis.plusoft.Dto.telefoneDto.AtualizacaoTelefone;
-import br.com.jarvis.plusoft.Dto.telefoneDto.DetalhesTelefoneDto;
-import br.com.jarvis.plusoft.Dto.telefoneDto.ListagemTelefoneDto;
-import br.com.jarvis.plusoft.Dto.telefoneDto.NovoTelefoneDto;
-import br.com.jarvis.plusoft.Repository.TelefoneRepository;
+import br.com.jarvis.plusoft.dto.telefoneDto.AtualizacaoTelefone;
+import br.com.jarvis.plusoft.dto.telefoneDto.DetalhesTelefoneDto;
+import br.com.jarvis.plusoft.dto.telefoneDto.ListagemTelefoneDto;
+import br.com.jarvis.plusoft.dto.telefoneDto.NovoTelefoneDto;
+import br.com.jarvis.plusoft.repository.TelefoneRepository;
 import br.com.jarvis.plusoft.model.Telefone;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -36,14 +37,10 @@ public class TelefoneController {
         return ok(new ListagemTelefoneDto(telefone));
     }
 
-    @PostMapping
-    @Transactional
-    public ResponseEntity<DetalhesTelefoneDto> post(@RequestBody NovoTelefoneDto novoTelefoneDto, UriComponentsBuilder uriComponentsBuilder){
-        var telefone = new Telefone(novoTelefoneDto);
-        telefoneRepository.save(telefone);
-        var uri = uriComponentsBuilder.path("/telefone/{id}").buildAndExpand(telefone.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DetalhesTelefoneDto(telefone));
-    }
+
+
+
+
 
     @PutMapping("{id}")
     @Transactional

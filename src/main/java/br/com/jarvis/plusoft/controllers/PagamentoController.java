@@ -1,11 +1,10 @@
 package br.com.jarvis.plusoft.controllers;
 
-import br.com.jarvis.plusoft.Dto.PagamentoDto.DetalhesPagamento;
-import br.com.jarvis.plusoft.Dto.PagamentoDto.ListagemPagamentoDto;
+import br.com.jarvis.plusoft.dto.pagamentoDto.DetalhesPagamento;
+import br.com.jarvis.plusoft.dto.pagamentoDto.ListagemPagamentoDto;
 
-import br.com.jarvis.plusoft.Dto.PagamentoDto.NovoPagamento;
-import br.com.jarvis.plusoft.Dto.clienteDto.ListagemClienteDtO;
-import br.com.jarvis.plusoft.Repository.PagamentoRepository;
+import br.com.jarvis.plusoft.dto.pagamentoDto.NovoPagamento;
+import br.com.jarvis.plusoft.repository.PagamentoRepository;
 import br.com.jarvis.plusoft.model.Pagamento;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

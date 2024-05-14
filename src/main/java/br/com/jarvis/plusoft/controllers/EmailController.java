@@ -1,10 +1,10 @@
 package br.com.jarvis.plusoft.controllers;
 
-import br.com.jarvis.plusoft.Dto.emailDto.AtualizarEmail;
-import br.com.jarvis.plusoft.Dto.emailDto.DetalhesEmailDto;
-import br.com.jarvis.plusoft.Dto.emailDto.ListagemEmailDto;
-import br.com.jarvis.plusoft.Dto.emailDto.NovoEmailDto;
-import br.com.jarvis.plusoft.Repository.EmailRepository;
+import br.com.jarvis.plusoft.dto.emailDto.AtualizarEmail;
+import br.com.jarvis.plusoft.dto.emailDto.DetalhesEmailDto;
+import br.com.jarvis.plusoft.dto.emailDto.ListagemEmailDto;
+import br.com.jarvis.plusoft.dto.emailDto.NovoEmailDto;
+import br.com.jarvis.plusoft.repository.EmailRepository;
 import br.com.jarvis.plusoft.model.Email;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +26,8 @@ public class EmailController {
 
     @GetMapping
     public ResponseEntity<List<ListagemEmailDto>> get(Pageable pageable){
-        var ListagemEmail = emailRepository.findAll().stream().map(ListagemEmailDto::new).toList();
-        return ok(ListagemEmail);
+        var ListagemEmail = emailRepository.findAll(pageable).stream().map(ListagemEmailDto::new).toList();
+        return ResponseEntity.ok(ListagemEmail);
 
     }
 
@@ -37,14 +37,7 @@ public class EmailController {
         return ok(new ListagemEmailDto(email));
     }
 
-    @PostMapping
-    @Transactional
-    public ResponseEntity<DetalhesEmailDto> post(@RequestBody NovoEmailDto novoEmailDto, UriComponentsBuilder uriComponentsBuilder){
-        var email = new Email(novoEmailDto);
-        emailRepository.save(email);
-        var uri = uriComponentsBuilder.path("email/{id}").buildAndExpand(email.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DetalhesEmailDto(email));
-    }
+
 
     @PutMapping("{id}")
     @Transactional

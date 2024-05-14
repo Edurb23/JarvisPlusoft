@@ -1,10 +1,10 @@
 package br.com.jarvis.plusoft.controllers;
 
-import br.com.jarvis.plusoft.Dto.produtoDto.AtualizacaoPrdotuo;
-import br.com.jarvis.plusoft.Dto.produtoDto.CadastroProdutoDto;
-import br.com.jarvis.plusoft.Dto.produtoDto.DetalhesProdutoDto;
-import br.com.jarvis.plusoft.Dto.produtoDto.ListagemProdutoDto;
-import br.com.jarvis.plusoft.Repository.ProdutoRepository;
+import br.com.jarvis.plusoft.dto.produtoDto.AtualizacaoPrdotuo;
+import br.com.jarvis.plusoft.dto.produtoDto.CadastroProdutoDto;
+import br.com.jarvis.plusoft.dto.produtoDto.DetalhesProdutoDto;
+import br.com.jarvis.plusoft.dto.produtoDto.ListagemProdutoDto;
+import br.com.jarvis.plusoft.repository.ProdutoRepository;
 import br.com.jarvis.plusoft.model.Produto;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

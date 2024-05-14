@@ -1,7 +1,7 @@
 package br.com.jarvis.plusoft.model;
 
-import br.com.jarvis.plusoft.Dto.clienteDto.AtualizacaoCliente;
-import br.com.jarvis.plusoft.Dto.clienteDto.CadastroClienteDto;
+import br.com.jarvis.plusoft.dto.clienteDto.AtualizacaoCliente;
+import br.com.jarvis.plusoft.dto.clienteDto.CadastroClienteDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -18,10 +19,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "TB_PL_CLIENTE")
+@SequenceGenerator(name = "seq_cliente", sequenceName = "SEQ_TB_PL_CLIENTE", allocationSize = 1)
 public class Cliente {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO, generator="seq_cliente")
     @Column(name = "ID_CLIENTE", length = 8)
     private Long id;
 
@@ -40,12 +42,27 @@ public class Cliente {
     @Column(name = "CD_SENHA", length = 150, nullable = false)
     private String senha;
 
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+     private List<Email> emails;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Telefone> telefones;
+
+
+
+
+
+
     public Cliente(CadastroClienteDto cadastroClienteDto) {
         nome = cadastroClienteDto.nome();
         cpf  = cadastroClienteDto.cpf();
         dataNascimento = cadastroClienteDto.dataNascimento();
         rg = cadastroClienteDto.rg();
         senha = cadastroClienteDto.senha();
+
+
+
     }
 
     public void atualizarAluno(AtualizacaoCliente dto) {

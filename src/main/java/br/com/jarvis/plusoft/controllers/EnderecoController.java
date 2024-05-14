@@ -1,10 +1,10 @@
 package br.com.jarvis.plusoft.controllers;
 
-import br.com.jarvis.plusoft.Dto.enderecolDto.AtualizacaoEndereco;
-import br.com.jarvis.plusoft.Dto.enderecolDto.DetalhesEndereco;
-import br.com.jarvis.plusoft.Dto.enderecolDto.ListagemEnderecoDto;
-import br.com.jarvis.plusoft.Dto.enderecolDto.NovoEnderecoDto;
-import br.com.jarvis.plusoft.Repository.EnderecoRepository;
+import br.com.jarvis.plusoft.dto.enderecolDto.AtualizacaoEndereco;
+import br.com.jarvis.plusoft.dto.enderecolDto.DetalhesEndereco;
+import br.com.jarvis.plusoft.dto.enderecolDto.ListagemEnderecoDto;
+import br.com.jarvis.plusoft.dto.enderecolDto.NovoEnderecoDto;
+import br.com.jarvis.plusoft.repository.EnderecoRepository;
 import br.com.jarvis.plusoft.model.EnderecoCliente;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,14 +36,7 @@ public class EnderecoController {
         return ok(new ListagemEnderecoDto(endereco));
     }
 
-    @PostMapping
-    @Transactional
-    public  ResponseEntity<DetalhesEndereco> post(@RequestBody NovoEnderecoDto novoEnderecoDto, UriComponentsBuilder uriComponentsBuilder) {
-        var endereco = new EnderecoCliente(novoEnderecoDto);
-        enderecoRepository.save(endereco);
-        var uri = uriComponentsBuilder.path("endereco/{id}").buildAndExpand(endereco.getId()).toUri();
-        return  ResponseEntity.created(uri).body(new DetalhesEndereco(endereco));
-    }
+
 
     @PutMapping("{id}")
     @Transactional

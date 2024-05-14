@@ -1,7 +1,7 @@
 package br.com.jarvis.plusoft.model;
 
-import br.com.jarvis.plusoft.Dto.enderecolDto.AtualizacaoEndereco;
-import br.com.jarvis.plusoft.Dto.enderecolDto.NovoEnderecoDto;
+import br.com.jarvis.plusoft.dto.enderecolDto.AtualizacaoEndereco;
+import br.com.jarvis.plusoft.dto.enderecolDto.NovoEnderecoDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,12 +31,19 @@ public class EnderecoCliente {
     @Column(name = "NM_BAIRRO", length = 30 ,nullable = false)
     private String nomeBairro;
 
+    @OneToOne
+    @JoinColumn(name = "ID_CLIENTE")
+    private Cliente cliente;
 
-    public EnderecoCliente(NovoEnderecoDto novoEnderecoDto) {
+
+    public EnderecoCliente(NovoEnderecoDto novoEnderecoDto, Cliente cliente) {
         nomeRua = novoEnderecoDto.nomeRua();
         numeroResidencia = novoEnderecoDto.numeroResidencia();
         nomeBairro = novoEnderecoDto.nomeBairro();
+        this.cliente = cliente;
     }
+
+
 
 
 
