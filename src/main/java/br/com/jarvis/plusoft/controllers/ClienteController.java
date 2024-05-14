@@ -59,46 +59,6 @@ public class ClienteController {
         return ResponseEntity.created(url).body(new DetalhesClienteDto(cliente));
     }
 
-    @PostMapping("{id}/email")
-    @Transactional
-    public ResponseEntity<DetalhesEmailDto> post(@PathVariable("id") Long id,
-                                                 @RequestBody @Valid NovoEmailDto dto,
-                                                 UriComponentsBuilder uriBuilder){
-        var cliente = clienteRepository.getReferenceById(id);
-        var email = new Email(dto, cliente);
-        emailRepository.save(email);
-        var uri = uriBuilder.path("email/{id}").buildAndExpand(email.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DetalhesEmailDto(email));
-    }
-
-
-    @PostMapping("{id}/telefone")
-    @Transactional
-    public ResponseEntity<DetalhesTelefoneDto> post(@PathVariable("id") Long id,
-                                                    @RequestBody @Valid NovoTelefoneDto dto,
-                                                    UriComponentsBuilder uriBuilder){
-        var cliente = clienteRepository.getReferenceById(id);
-        var telefone = new Telefone(dto, cliente);
-        var uri = uriBuilder.path("telefone/{id}").buildAndExpand(telefone.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DetalhesTelefoneDto(telefone));
-
-    }
-
-    @PostMapping("{id}/endereco")
-    @Transactional
-    public ResponseEntity<DetalhesEndereco> post(@PathVariable("id") Long id,
-                                                 @RequestBody @Valid NovoEnderecoDto dto,
-                                                 UriComponentsBuilder uriBuilder){
-        var cliente = clienteRepository.getReferenceById(id);
-        var endereco = new EnderecoCliente(dto, cliente);
-        var uri = uriBuilder.path("telefone/{id}").buildAndExpand(endereco.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DetalhesEndereco(endereco));
-
-
-    }
-
-
-
 
     @PutMapping("{id}")
     @Transactional

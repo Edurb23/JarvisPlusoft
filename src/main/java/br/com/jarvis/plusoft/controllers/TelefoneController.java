@@ -4,6 +4,7 @@ import br.com.jarvis.plusoft.dto.telefoneDto.AtualizacaoTelefone;
 import br.com.jarvis.plusoft.dto.telefoneDto.DetalhesTelefoneDto;
 import br.com.jarvis.plusoft.dto.telefoneDto.ListagemTelefoneDto;
 import br.com.jarvis.plusoft.dto.telefoneDto.NovoTelefoneDto;
+import br.com.jarvis.plusoft.repository.ClienteRepository;
 import br.com.jarvis.plusoft.repository.TelefoneRepository;
 import br.com.jarvis.plusoft.model.Telefone;
 import jakarta.transaction.Transactional;
@@ -25,6 +26,10 @@ public class TelefoneController {
     @Autowired
     private TelefoneRepository telefoneRepository;
 
+
+    @Autowired
+    private ClienteRepository clienteRepository;
+
     @GetMapping
     public ResponseEntity<List<ListagemTelefoneDto>> get(Pageable pageable){
         var ListagemTelefone = telefoneRepository.findAll().stream().map(ListagemTelefoneDto::new).toList();
@@ -35,6 +40,19 @@ public class TelefoneController {
     public ResponseEntity<ListagemTelefoneDto> get(@PathVariable("id") Long id){
         var telefone = telefoneRepository.getReferenceById(id);
         return ok(new ListagemTelefoneDto(telefone));
+    }
+
+
+    @PostMapping("{id}/telefone")
+    @Transactional
+    public ResponseEntity<DetalhesTelefoneDto> post(@PathVariable("id") Long id,
+                                                    @RequestBody @Valid NovoTelefoneDto dto,
+                                                    UriComponentsBuilder uriBuilder){
+        var cliente = clienteRepository.getReferenceById(id);
+        var telefone = new Telefone(dto, cliente);
+        var uri = uriBuilder.path("telefone/{id}").buildAndExpand(telefone.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DetalhesTelefoneDto(telefone));
+
     }
 
 

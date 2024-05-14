@@ -4,9 +4,11 @@ import br.com.jarvis.plusoft.dto.enderecolDto.AtualizacaoEndereco;
 import br.com.jarvis.plusoft.dto.enderecolDto.DetalhesEndereco;
 import br.com.jarvis.plusoft.dto.enderecolDto.ListagemEnderecoDto;
 import br.com.jarvis.plusoft.dto.enderecolDto.NovoEnderecoDto;
+import br.com.jarvis.plusoft.repository.ClienteRepository;
 import br.com.jarvis.plusoft.repository.EnderecoRepository;
 import br.com.jarvis.plusoft.model.EnderecoCliente;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,9 @@ public class EnderecoController {
     @Autowired
     private EnderecoRepository enderecoRepository;
 
+    @Autowired
+    private ClienteRepository clienteRepository;
+
     @GetMapping
     public ResponseEntity<List<ListagemEnderecoDto>> get(Pageable pageable){
         var ListagemEndereco = enderecoRepository.findAll().stream().map(ListagemEnderecoDto::new).toList();
@@ -34,6 +39,19 @@ public class EnderecoController {
     public  ResponseEntity<ListagemEnderecoDto> get(@PathVariable("id") Long id){
         var endereco = enderecoRepository.getReferenceById(id);
         return ok(new ListagemEnderecoDto(endereco));
+    }
+
+    @PostMapping("{id}/endereco")
+    @Transactional
+    public ResponseEntity<DetalhesEndereco> post(@PathVariable("id") Long id,
+                                                 @RequestBody @Valid NovoEnderecoDto dto,
+                                                 UriComponentsBuilder uriBuilder){
+        var cliente = clienteRepository.getReferenceById(id);
+        var endereco = new EnderecoCliente(dto, cliente);
+        var uri = uriBuilder.path("telefone/{id}").buildAndExpand(endereco.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DetalhesEndereco(endereco));
+
+
     }
 
 
