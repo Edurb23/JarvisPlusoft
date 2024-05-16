@@ -52,7 +52,8 @@ public class Cliente{
     private List<Telefone> telefones;
 
 
-
+        @ManyToMany(mappedBy = "clientes")
+        private List<Produto>produtos;
 
 
     public Cliente(CadastroClienteDto cadastroClienteDto) {

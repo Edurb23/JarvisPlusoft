@@ -46,7 +46,11 @@ public class Produto {
     @Column(name = "DS_PRODUTO", length = 150)
     private  String descricao;
 
-
+    @ManyToMany
+    @JoinTable(name = "TB_PL_CLIENTE_PRODUTO",
+               joinColumns = @JoinColumn(name = "ID_PRODUTO"),
+                inverseJoinColumns =  @JoinColumn(name = "ID_CLIENTE"))
+    private List<Cliente> clientes;
 
 
 
