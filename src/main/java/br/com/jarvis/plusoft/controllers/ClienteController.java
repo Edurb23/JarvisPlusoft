@@ -109,6 +109,16 @@ public class ClienteController {
 
 
     }
+    @PutMapping("{idCliente}/produto/{idProduto}")
+    @Transactional
+    public ResponseEntity<DetalhesClienteDto> put(@PathVariable("idCliente") Long idCliente, @PathVariable("idProduto") Long idProduto){
+        var cliente = clienteRepository.getReferenceById(idCliente);
+        var produto = produtoRepository.getReferenceById(idProduto);
+        produto.getClientes().add(cliente);
+        return ResponseEntity.ok().body(new DetalhesClienteDto(cliente));
+    }
+
+
 
 
 
