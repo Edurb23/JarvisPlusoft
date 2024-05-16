@@ -16,9 +16,11 @@ import br.com.jarvis.plusoft.model.Telefone;
 import br.com.jarvis.plusoft.repository.ClienteRepository;
 import br.com.jarvis.plusoft.model.Cliente;
 import br.com.jarvis.plusoft.repository.EmailRepository;
+import br.com.jarvis.plusoft.repository.ProdutoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +40,9 @@ public class ClienteController {
     @Autowired
     private EmailRepository emailRepository;
 
+    @Autowired
+    private ProdutoRepository produtoRepository;
+
     @GetMapping
     public ResponseEntity<List<ListagemClienteDtO>> get(Pageable pageable){
         var ListagemCliente = clienteRepository.findAll().stream().map(ListagemClienteDtO::new).toList();
@@ -50,6 +55,12 @@ public class ClienteController {
         return ok(new ListagemClienteDtO(clientes));
     }
 
+  //  @GetMapping("por-nome")
+  //  public ResponseEntity<Page<DetalhesClienteDto>> get(@RequestParam("nome") String nome, Pageable pageable){
+  ///      var  page = clienteRepository.buscarPorNome(nome, pageable).map(DetalhesClienteDto::new);
+   //     return ResponseEntity.ok(page);
+   // }
+
     @PostMapping
     @Transactional
     public ResponseEntity<DetalhesClienteDto> create(@RequestBody @Valid CadastroClienteDto dto, UriComponentsBuilder builder){
@@ -58,6 +69,47 @@ public class ClienteController {
         var url = builder.path("cliente/{id}").buildAndExpand(cliente.getId()).toUri();
         return ResponseEntity.created(url).body(new DetalhesClienteDto(cliente));
     }
+
+    /// EMAIL ///
+    @PostMapping("{id}/email")
+    @Transactional
+    public ResponseEntity<DetalhesEmailDto> post(@PathVariable("id") Long id,
+                                                 @RequestBody @Valid NovoEmailDto dto,
+                                                 UriComponentsBuilder uriBuilder){
+        var cliente = clienteRepository.getReferenceById(id);
+        var email = new Email(dto, cliente);
+        emailRepository.save(email);
+        var uri = uriBuilder.path("email/{id}").buildAndExpand(email.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DetalhesEmailDto(email));
+    }
+
+    // TELEFONE
+    @PostMapping("{id}/telefone")
+    @Transactional
+    public ResponseEntity<DetalhesTelefoneDto> post(@PathVariable("id") Long id,
+                                                    @RequestBody @Valid NovoTelefoneDto dto,
+                                                    UriComponentsBuilder uriBuilder){
+        var cliente = clienteRepository.getReferenceById(id);
+        var telefone = new Telefone(dto, cliente);
+        var uri = uriBuilder.path("telefone/{id}").buildAndExpand(telefone.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DetalhesTelefoneDto(telefone));
+
+    }
+
+    //Endereço
+    @PostMapping("{id}/endereco")
+    @Transactional
+    public ResponseEntity<DetalhesEndereco> post(@PathVariable("id") Long id,
+                                                 @RequestBody @Valid NovoEnderecoDto dto,
+                                                 UriComponentsBuilder uriBuilder){
+        var cliente = clienteRepository.getReferenceById(id);
+        var endereco = new EnderecoCliente(dto, cliente);
+        var uri = uriBuilder.path("endereco/{id}").buildAndExpand(endereco.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DetalhesEndereco(endereco));
+
+
+    }
+
 
 
     @PutMapping("{id}")
@@ -68,6 +120,9 @@ public class ClienteController {
         cliente.atualizarAluno(dto);
         return ResponseEntity.ok(new ListagemClienteDtO(cliente));
     }
+
+
+
 
     @DeleteMapping("{id}")
     @Transactional

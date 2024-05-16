@@ -41,18 +41,7 @@ public class EnderecoController {
         return ok(new ListagemEnderecoDto(endereco));
     }
 
-    @PostMapping("{id}/endereco")
-    @Transactional
-    public ResponseEntity<DetalhesEndereco> post(@PathVariable("id") Long id,
-                                                 @RequestBody @Valid NovoEnderecoDto dto,
-                                                 UriComponentsBuilder uriBuilder){
-        var cliente = clienteRepository.getReferenceById(id);
-        var endereco = new EnderecoCliente(dto, cliente);
-        var uri = uriBuilder.path("telefone/{id}").buildAndExpand(endereco.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DetalhesEndereco(endereco));
 
-
-    }
 
 
 

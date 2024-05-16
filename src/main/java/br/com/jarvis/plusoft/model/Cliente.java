@@ -10,7 +10,9 @@ import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -20,10 +22,10 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "TB_PL_CLIENTE")
 @SequenceGenerator(name = "seq_cliente", sequenceName = "SEQ_TB_PL_CLIENTE", allocationSize = 1)
-public class Cliente {
+public class Cliente{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator="seq_cliente")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_cliente")
     @Column(name = "ID_CLIENTE", length = 8)
     private Long id;
 
@@ -48,7 +50,6 @@ public class Cliente {
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Telefone> telefones;
-
 
 
 

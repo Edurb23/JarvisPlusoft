@@ -43,17 +43,7 @@ public class TelefoneController {
     }
 
 
-    @PostMapping("{id}/telefone")
-    @Transactional
-    public ResponseEntity<DetalhesTelefoneDto> post(@PathVariable("id") Long id,
-                                                    @RequestBody @Valid NovoTelefoneDto dto,
-                                                    UriComponentsBuilder uriBuilder){
-        var cliente = clienteRepository.getReferenceById(id);
-        var telefone = new Telefone(dto, cliente);
-        var uri = uriBuilder.path("telefone/{id}").buildAndExpand(telefone.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DetalhesTelefoneDto(telefone));
 
-    }
 
 
 

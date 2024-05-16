@@ -8,6 +8,7 @@ import br.com.jarvis.plusoft.repository.ProdutoRepository;
 import br.com.jarvis.plusoft.model.Produto;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +37,12 @@ public class ProdutoController {
         var produtos = produtoRepository.getReferenceById(id);
         return ok(new ListagemProdutoDto(produtos));
     }
+
+  //  @GetMapping("por-nome")
+ //   public ResponseEntity<Page<DetalhesProdutoDto>> get(@RequestParam("nomeProduto") String nome, Pageable pageable){
+   //     var page = produtoRepository.buscarProdutoNome(nome, pageable).map(DetalhesProdutoDto::new);
+  //      return ResponseEntity.ok(page);
+ //   }
 
     @PostMapping
     @Transactional

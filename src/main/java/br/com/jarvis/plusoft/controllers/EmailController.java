@@ -44,17 +44,7 @@ public class EmailController {
     }
 
 
-    @PostMapping("{id}/email")
-    @Transactional
-    public ResponseEntity<DetalhesEmailDto> post(@PathVariable("id") Long id,
-                                                 @RequestBody @Valid NovoEmailDto dto,
-                                                 UriComponentsBuilder uriBuilder){
-        var cliente = clienteRepository.getReferenceById(id);
-        var email = new Email(dto, cliente);
-        emailRepository.save(email);
-        var uri = uriBuilder.path("email/{id}").buildAndExpand(email.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DetalhesEmailDto(email));
-    }
+
 
 
 

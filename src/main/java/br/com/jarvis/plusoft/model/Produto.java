@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "TB_PL_PRODUTO")
@@ -18,11 +19,12 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@SequenceGenerator(name = "seq_produto", sequenceName = "seq_tb_pl_produto", allocationSize = 1)
 public class Produto {
 
     @Id
-    @GeneratedValue
     @Column(name = "ID_PRODUTO")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_produto")
     private Long id;
 
     @Column(name =  "NM_PRODUTO", length = 150, nullable = false)
@@ -43,6 +45,8 @@ public class Produto {
 
     @Column(name = "DS_PRODUTO", length = 150)
     private  String descricao;
+
+
 
 
 
