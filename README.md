@@ -23,20 +23,34 @@ mercado.
 
 # Prazo de Entrega
 
-O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/2024.
-o prazo final sera em novembro de 2024
+- O prazo estabelecido para a primeira entrega desta fase do projeto é dia 14/04/2024 - (Concluido)
+- O parzo estabelecido para a segunda entrega desta fase do projeto é dia 20/5/2024 
+- o prazo final sera em novembro de 2024
 
+# Melhorias
 
+Nesta fase do projeto, implementamos com sucesso os relacionamentos entre as tabelas, aprimorando significativamente a estrutura do banco de dados. Agora, nosso sistema suporta relacionamentos OneToMany, ManyToOne e ManyToMany, permitindo uma modelagem de dados mais rica e complexa. Além disso, atualizamos o diagrama de classes para refletir essas alterações, garantindo que a documentação esteja em conformidade com a nova arquitetura do sistema.
+
+Os relacionamentos OneToMany foram estabelecidos para representar situações onde uma entidade pode estar associada a várias instâncias de outra entidade, mas cada uma dessas instâncias está ligada apenas a uma entidade principal. Por outro lado, os relacionamentos ManyToOne foram implementados para capturar o inverso: múltiplas instâncias de uma entidade estão relacionadas a uma única instância de outra.
+
+Mais complexos, os relacionamentos ManyToMany foram configurados para representar cenários onde várias instâncias de uma entidade podem estar associadas a várias instâncias de outra entidade, possibilitando uma maior flexibilidade na representação de interações entre diferentes conjuntos de dados.
+
+Além dessas melhorias estruturais, também adicionamos validações nos campos dos DTOs (Data Transfer Objects). Essas validações garantem que os dados transmitidos entre as camadas do sistema sejam consistentes e atendam aos requisitos de integridade e formato, prevenindo erros e melhorando a robustez do sistema.
+
+Com estas modificações, nosso diagrama de classes foi completamente revisado e atualizado, refletindo com precisão as novas conexões e validações, garantindo que todos os stakeholders tenham uma visão clara e atualizada da estrutura do sistema. Este esforço não só aprimora a coerência e a integridade do nosso modelo de dados, mas também facilita futuras expansões e manutenções no sistema.
 
 
 
 # Digramas
 
 ## Banco de dados
-![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/4e9dcd22-9d02-435c-80d9-18c5e1f4da94)
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/037fcfc2-ed3e-464c-b70f-ed8b20dcdbf8)
+
+
 
 ## Diagrama de classes
-![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/abc90169-c6c5-4b09-a37f-1e473d1321fb)
+![MicrosoftTeams-image (1)](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/8cc350d2-5b10-4afc-8c74-125d9b62b306)
+
 
 
 
@@ -123,43 +137,11 @@ DELETE
 `GET` /localhost:8080/cliente
 
 **Exemplo Corpo de resposta**
-```JSON
-[
-	{
-		"id": 953,
-		"nome": "Karina",
-		"cpf": "11020301515",
-		"rg": "1234567",
-		"datanascimento": "2000-04-11",
-		"senha": "karina123"
-	},
-	{
-		"id": 954,
-		"nome": "Jennie",
-		"cpf": "23600731092",
-		"rg": "453533395",
-		"datanascimento": "1996-01-16",
-		"senha": "JennieKim123"
-	},
-	{
-		"id": 956,
-		"nome": "Sana",
-		"cpf": "31082448095",
-		"rg": "416695188",
-		"datanascimento": "1996-12-29",
-		"senha": "SanaLikey123"
-	},
-	{
-		"id": 957,
-		"nome": "Jordan Terrell",
-		"cpf": "97297676020",
-		"rg": "345316344",
-		"datanascimento": "1996-07-13",
-		"senha": "wholelott@red123"
-	}
-]
 
-```
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/40d5b135-f316-4045-8cb8-a70c702a137c)
+
+
+
 **HTTP responses para `GET`**
 | Código | Descrição |
 |---|---|
@@ -174,17 +156,11 @@ DELETE
   `GET` /localhost:8080/cliente/{id}
 
   **Exemplo Corpo de resposta**
-  ```JSON
-{
-	"id": 957,
-	"nome": "Jordan Terrell",
-	"cpf": "97297676020",
-	"rg": "345316344",
-	"datanascimento": "1996-07-13",
-	"senha": "wholelott@red123"
-}
 
-```
+
+  
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/3eec4f97-b7a8-4912-b9a4-3a8688ff3eec)
+
 **HTTP responses para `GET`**
 | Código | Descrição |
 |---|---|
@@ -214,30 +190,23 @@ DELETE
 
 {
     
-	"nome": "Cristiano",
-        "cpf": "54702324098",
-        "rg": "324205727",
-        "dataNascimento": "1985-02-05",
-	"senha":  "cristiano7portu"
+			"nome": "Sana Minatozaki",
+			"cpf": "33344455566",
+			"rg": "135792468",
+			"dataNascimento": "1996-12-29",
+			"senha": "senha3"
+}
 	
-    }
+    
 ```
 
 **Status 200 ok**
 ---
 **Exemplo corpo de resposta**
 
-```JSON
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/01b3ed70-1fd4-468f-865c-11f8b6d1b26f)
 
-{
-	"id": 958,
-	"nome": "Cristiano",
-	"cpf": "54702324098",
-	"rg": "324205727",
-	"datanascimento": "1985-02-05",
-	"senha": "cristiano7portu"
-}
-```
+
 **HTTP responses para POST**
 | Código | Descrição |
 |---|---|
@@ -264,11 +233,12 @@ DELETE
 
 {
     
-	"nome": "Cristiano",
-        "cpf": "54702324098",
-        "rg": "324205727",
-        "dataNascimento": "1985-02-05",
-	"senha":  "cristianoR7portu"
+	"nome": "Sana Minatozaki",
+	"cpf": "33344455566",
+	"rg": "135792468",
+	"dataNascimento": "1996-12-29",
+	"senha": "sana1234"
+}
 	
     }
 ```
@@ -277,23 +247,17 @@ DELETE
 ---
 **Exemplo corpo de resposta**
 
-```JSON
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/5ce180da-858a-4467-b3c6-2b5872e7db21)
 
-{
-	"id": 958,
-	"nome": "Cristiano",
-	"cpf": "54702324098",
-	"rg": "324205727",
-	"datanascimento": "1985-02-05",
-	"senha": "cristianoR7portu"
-}
-```
 
 ### Deletar_Usuário
 
 `Delete` /localhost:8080/cliente/{id}
 
 Retorna um arquivo JSON vazio.
+
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/005efd7c-5473-4f87-91c5-6a98cc88f52c)
+
 
 **Respostas que podem aparecer no DELETE :**
 
@@ -312,26 +276,7 @@ Retorna um arquivo JSON vazio.
 
 **Exemplo Corpo de resposta**
 ```JSON
-[
-	{
-		"id": 1,
-		"numeroTelefone": "97684-9954",
-		"ddd": "11",
-		"operadora": "Vivo-Celular"
-	},
-	{
-		"id": 2,
-		"numeroTelefone": "98156-8733",
-		"ddd": "11",
-		"operadora": "Claro-Celular"
-	},
-	{
-		"id": 3,
-		"numeroTelefone": "96992-5122",
-		"ddd": "11",
-		"operadora": "Tim-Celular"
-	}
-]
+ COLOCAR IMAGEM
 ```
 **HTTP responses para `GET`**
 | Código | Descrição |
@@ -458,35 +403,8 @@ Retorna um arquivo JSON vazio.
 `GET` /localhost:8080/email
 
 **Exemplo Corpo de resposta**
-```JSON
-[
-	{
-		"id": 1,
-		"email": "Karina@gmail.com",
-		"dadosEmail": "Karina@gmail.com",
-		"statusEmail": "ativo"
-	},
-	{
-		"id": 2,
-		"email": "Jennie@gmail.com",
-		"dadosEmail": "Jennie@gmail.com",
-		"statusEmail": "ativo"
-	},
-	{
-		"id": 3,
-		"email": "Sana@hotmail.com",
-		"dadosEmail": "sana@hotmail.com",
-		"statusEmail": "ativo"
-	},
-	{
-		"id": 4,
-		"email": "playboiC@hotmail.com",
-		"dadosEmail": "playboiC@hotmail.com",
-		"statusEmail": "ativo"
-	}
-]
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/351669d1-002f-4287-8b4b-0270dcf831d9)
 
-```
 
 **HTTP responses para `GET`**
 | Código | Descrição |
@@ -497,9 +415,19 @@ Retorna um arquivo JSON vazio.
 | `500` | Internal server error|
 ---
 
+### Buscar_email
+`GET` /localhost:8080/email/{id}
+**Exemplo Corpo de resposta**
+
+
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/b4729427-2f5f-48e4-a4d5-f38d444a5db8)
+
+
+
+
 ### cadastrar_email
 
-  `POST` /localhost:8080/email
+  `POST` http://localhost:8080/cliente/{id_cliente}/email
 
   **Atributos do request**
 |        Campo         |   Tipo   | Obrigatorio |  Descrição
@@ -513,11 +441,12 @@ Retorna um arquivo JSON vazio.
 ```JSON
 
 {
-    
-	 "email": "playboiC@hotmail.com",
-        "dadosEmail": "playboiC@hotmail.com",
-        "statusEmail": "ativo"
-    }
+	"email": "sana@gmail.com",
+    	"dadosEmail": "sana@gmail.com",
+    	"statusEmail": "ATIVO"
+
+		
+}
 
 ```
 
@@ -525,15 +454,8 @@ Retorna um arquivo JSON vazio.
 ---
 **Exemplo corpo de resposta**
 
-```JSON
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/c2f30f0a-e9af-4a69-b59d-2b785e0a8e10)
 
-{
-	"id": 4,
-	"email": "playboiC@hotmail.com",
-	"dadosEmail": "playboiC@hotmail.com",
-	"statusEmail": "ativo"
-}
-```
 **HTTP responses para POST**
 | Código | Descrição |
 |---|---|
@@ -556,11 +478,10 @@ Retorna um arquivo JSON vazio.
 ```JSON
 
 {
-	"email": "playboiC@hotmail.com",
-        "dadosEmail": "playboiC@hotmail.com",
-        "statusEmail": "inativo"
-	
-    }
+	"email": "JennieKim@gmail.com",
+	"dadosEmail": "jenniekim@gmail.com",
+	"statusEmail": "INATIVO"
+}
 
 ```
 
@@ -568,15 +489,8 @@ Retorna um arquivo JSON vazio.
 ---
 **Exemplo corpo de resposta**
 
-```JSON
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/47bccf77-ac4a-4d74-ba53-9e354df69388)
 
-{
-	"id": 4,
-	"email": "playboiC@hotmail.com",
-	"dadosEmail": "playboiC@hotmail.com",
-	"statusEmail": "inativo"
-}
-```
 
 **Respostas que podem aparecer no PUT :**
 | Código | Descrição |
@@ -593,6 +507,9 @@ Retorna um arquivo JSON vazio.
 `Delete` /localhost:8080/email/{id}
 
 Retorna um arquivo JSON vazio.
+
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/6491b9fc-7e05-42ce-b606-3feffbf08b6a)
+
 
 **Respostas que podem aparecer no DELETE :**
 
