@@ -29,14 +29,23 @@ mercado.
 
 # Melhorias
 
- Nesta entrega, adicionamos os relacionamentos entre as tabelas em nosso projeto. Agora, temos relacionamentos OneToMany, ManyToOne e ManyToMany. Além disso, refizemos o diagrama de classes para refletir essas mudanças
+Nesta fase do projeto, implementamos com sucesso os relacionamentos entre as tabelas, aprimorando significativamente a estrutura do banco de dados. Agora, nosso sistema suporta relacionamentos OneToMany, ManyToOne e ManyToMany, permitindo uma modelagem de dados mais rica e complexa. Além disso, atualizamos o diagrama de classes para refletir essas alterações, garantindo que a documentação esteja em conformidade com a nova arquitetura do sistema.
+
+Os relacionamentos OneToMany foram estabelecidos para representar situações onde uma entidade pode estar associada a várias instâncias de outra entidade, mas cada uma dessas instâncias está ligada apenas a uma entidade principal. Por outro lado, os relacionamentos ManyToOne foram implementados para capturar o inverso: múltiplas instâncias de uma entidade estão relacionadas a uma única instância de outra.
+
+Mais complexos, os relacionamentos ManyToMany foram configurados para representar cenários onde várias instâncias de uma entidade podem estar associadas a várias instâncias de outra entidade, possibilitando uma maior flexibilidade na representação de interações entre diferentes conjuntos de dados.
+
+Além dessas melhorias estruturais, também adicionamos validações nos campos dos DTOs (Data Transfer Objects). Essas validações garantem que os dados transmitidos entre as camadas do sistema sejam consistentes e atendam aos requisitos de integridade e formato, prevenindo erros e melhorando a robustez do sistema.
+
+Com estas modificações, nosso diagrama de classes foi completamente revisado e atualizado, refletindo com precisão as novas conexões e validações, garantindo que todos os stakeholders tenham uma visão clara e atualizada da estrutura do sistema. Este esforço não só aprimora a coerência e a integridade do nosso modelo de dados, mas também facilita futuras expansões e manutenções no sistema.
 
 
 
 # Digramas
 
 ## Banco de dados
-![banco](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/52d9e4df-cf6c-473b-be59-9ba7eae9e2e8)
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/037fcfc2-ed3e-464c-b70f-ed8b20dcdbf8)
+
 
 
 ## Diagrama de classes
