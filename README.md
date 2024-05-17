@@ -175,11 +175,12 @@ DELETE
 
 {
     
-	"nome": "Cristiano",
-        "cpf": "54702324098",
-        "rg": "324205727",
-        "dataNascimento": "1985-02-05",
-	"senha":  "cristiano7portu"
+			"nome": "Sana Minatozaki",
+			"cpf": "33344455566",
+			"rg": "135792468",
+			"dataNascimento": "1996-12-29",
+			"senha": "senha3"
+}
 	
     }
 ```
@@ -188,16 +189,8 @@ DELETE
 ---
 **Exemplo corpo de resposta**
 
-```JSON
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/01b3ed70-1fd4-468f-865c-11f8b6d1b26f)
 
-{
-	"id": 958,
-	"nome": "Cristiano",
-	"cpf": "54702324098",
-	"rg": "324205727",
-	"datanascimento": "1985-02-05",
-	"senha": "cristiano7portu"
-}
 ```
 **HTTP responses para POST**
 | Código | Descrição |
