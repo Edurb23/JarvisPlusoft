@@ -13,10 +13,8 @@ import br.com.jarvis.plusoft.dto.telefoneDto.NovoTelefoneDto;
 import br.com.jarvis.plusoft.model.Email;
 import br.com.jarvis.plusoft.model.EnderecoCliente;
 import br.com.jarvis.plusoft.model.Telefone;
-import br.com.jarvis.plusoft.repository.ClienteRepository;
+import br.com.jarvis.plusoft.repository.*;
 import br.com.jarvis.plusoft.model.Cliente;
-import br.com.jarvis.plusoft.repository.EmailRepository;
-import br.com.jarvis.plusoft.repository.ProdutoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +41,13 @@ public class ClienteController {
     @Autowired
     private ProdutoRepository produtoRepository;
 
+    @Autowired
+    private TelefoneRepository telefoneRepository;
+
+
+    @Autowired
+    private EnderecoRepository enderecoRepository;
+
     @GetMapping
     public ResponseEntity<List<ListagemClienteDtO>> get(Pageable pageable){
         var ListagemCliente = clienteRepository.findAll().stream().map(ListagemClienteDtO::new).toList();
@@ -50,16 +55,10 @@ public class ClienteController {
     }
 
     @GetMapping("{id}")
-    public  ResponseEntity<ListagemClienteDtO> get(@PathVariable("id") Long id){
+    public  ResponseEntity<DetalhesClienteDto> get(@PathVariable("id") Long id){
         var clientes = clienteRepository.getReferenceById(id);
-        return ok(new ListagemClienteDtO(clientes));
+        return ok(new DetalhesClienteDto(clientes));
     }
-
-  //  @GetMapping("por-nome")
-  //  public ResponseEntity<Page<DetalhesClienteDto>> get(@RequestParam("nome") String nome, Pageable pageable){
-  ///      var  page = clienteRepository.buscarPorNome(nome, pageable).map(DetalhesClienteDto::new);
-   //     return ResponseEntity.ok(page);
-   // }
 
     @PostMapping
     @Transactional
@@ -91,6 +90,7 @@ public class ClienteController {
                                                     UriComponentsBuilder uriBuilder){
         var cliente = clienteRepository.getReferenceById(id);
         var telefone = new Telefone(dto, cliente);
+        telefoneRepository.save(telefone);
         var uri = uriBuilder.path("telefone/{id}").buildAndExpand(telefone.getId()).toUri();
         return ResponseEntity.created(uri).body(new DetalhesTelefoneDto(telefone));
 
@@ -104,6 +104,7 @@ public class ClienteController {
                                                  UriComponentsBuilder uriBuilder){
         var cliente = clienteRepository.getReferenceById(id);
         var endereco = new EnderecoCliente(dto, cliente);
+        enderecoRepository.save(endereco);
         var uri = uriBuilder.path("endereco/{id}").buildAndExpand(endereco.getId()).toUri();
         return ResponseEntity.created(uri).body(new DetalhesEndereco(endereco));
 

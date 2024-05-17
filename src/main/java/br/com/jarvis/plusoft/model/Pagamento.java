@@ -34,10 +34,16 @@ public class Pagamento {
     private LocalDate data;
 
 
-    public Pagamento(NovoPagamento novoPagamento) {
+    @ManyToOne()
+    @JoinColumn(name = "ID_PRODUTO", nullable = false)
+    private  Produto produto;
+
+
+    public Pagamento(NovoPagamento novoPagamento, Produto produto) {
         nome = novoPagamento.nome();
         numero = novoPagamento.numero();
         descricao = novoPagamento.descricao();
         data = novoPagamento.data();
+        this.produto = produto;
     }
 }

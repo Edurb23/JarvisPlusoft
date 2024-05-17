@@ -46,6 +46,11 @@ public class Produto {
     @Column(name = "DS_PRODUTO", length = 150)
     private  String descricao;
 
+
+    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+    private List<Pagamento> pagamentos;
+
+
     @ManyToMany
     @JoinTable(name = "TB_PL_CLIENTE_PRODUTO",
                joinColumns = @JoinColumn(name = "ID_PRODUTO"),

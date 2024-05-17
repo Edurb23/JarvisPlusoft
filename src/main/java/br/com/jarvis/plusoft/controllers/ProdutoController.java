@@ -1,12 +1,17 @@
 package br.com.jarvis.plusoft.controllers;
 
+import br.com.jarvis.plusoft.dto.pagamentoDto.DetalhesPagamento;
+import br.com.jarvis.plusoft.dto.pagamentoDto.NovoPagamento;
 import br.com.jarvis.plusoft.dto.produtoDto.AtualizacaoPrdotuo;
 import br.com.jarvis.plusoft.dto.produtoDto.CadastroProdutoDto;
 import br.com.jarvis.plusoft.dto.produtoDto.DetalhesProdutoDto;
 import br.com.jarvis.plusoft.dto.produtoDto.ListagemProdutoDto;
+import br.com.jarvis.plusoft.model.Pagamento;
+import br.com.jarvis.plusoft.repository.PagamentoRepository;
 import br.com.jarvis.plusoft.repository.ProdutoRepository;
 import br.com.jarvis.plusoft.model.Produto;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,6 +29,9 @@ public class ProdutoController {
 
     @Autowired
     private ProdutoRepository produtoRepository;
+    @Autowired
+    private PagamentoRepository pagamentoRepository;
+
 
     @GetMapping
     public ResponseEntity<List<ListagemProdutoDto>> get(Pageable pageable){
@@ -38,11 +46,6 @@ public class ProdutoController {
         return ok(new ListagemProdutoDto(produtos));
     }
 
-  //  @GetMapping("por-nome")
- //   public ResponseEntity<Page<DetalhesProdutoDto>> get(@RequestParam("nomeProduto") String nome, Pageable pageable){
-   //     var page = produtoRepository.buscarProdutoNome(nome, pageable).map(DetalhesProdutoDto::new);
-  //      return ResponseEntity.ok(page);
- //   }
 
     @PostMapping
     @Transactional
@@ -53,6 +56,22 @@ public class ProdutoController {
         return ResponseEntity.created(uri).body(new DetalhesProdutoDto(produtos));
 
     }
+
+
+    // PAGEMENTO
+    @PostMapping("{id}/pagamento")
+    @Transactional
+    public ResponseEntity<DetalhesPagamento> post(@PathVariable("id") Long id,
+                                                  @RequestBody @Valid NovoPagamento dto,
+                                                  UriComponentsBuilder uriBuilder){
+        var produto = produtoRepository.getReferenceById(id);
+        var pagamento = new Pagamento(dto, produto);
+        pagamentoRepository.save(pagamento);
+        var uri = uriBuilder.path("pagamento/{id}").buildAndExpand(pagamento.getId()).toUri();
+        return  ResponseEntity.created(uri).body(new DetalhesPagamento(pagamento));
+
+    }
+
 
     @PutMapping("{id}")
     @Transactional

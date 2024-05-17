@@ -10,7 +10,7 @@ public record NovoEmailDto(
         @NotBlank(message = "Email é obrigatório")
         @Size(max = 30, message = "o dados do email deve ter no máximo 30 caracteres")
         String dadosEmail,
-        @NotBlank(message = "Email é obrigatório")
+        @NotBlank(message = "Status é obrigatório")
         @Size(max = 20, message = "o status do email deve ter no máximo 20 caracteres")
         String statusEmail
 

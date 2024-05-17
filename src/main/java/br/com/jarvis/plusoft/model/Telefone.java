@@ -1,7 +1,5 @@
 package br.com.jarvis.plusoft.model;
 
-
-import br.com.jarvis.plusoft.dto.enderecolDto.NovoEnderecoDto;
 import br.com.jarvis.plusoft.dto.telefoneDto.AtualizacaoTelefone;
 import br.com.jarvis.plusoft.dto.telefoneDto.NovoTelefoneDto;
 import jakarta.persistence.*;
@@ -11,8 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.util.List;
-
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Getter
@@ -20,9 +16,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "TB_PL_TELEFONE")
+@SequenceGenerator(name = "seq_telefone", sequenceName = "SEQ_TB_PL_TELEFONE", allocationSize = 1)
 public class Telefone {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_telefone")
     @Column(name="ID_TELEFONE", length = 8)
     private Long id;
 
@@ -35,28 +32,26 @@ public class Telefone {
     @Column(name = "DS_TELEFONE", length = 30, nullable = false)
     private String operadora;
 
-
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "ID_CLIENTE", nullable = false)
     private Cliente cliente;
 
-
     public Telefone(NovoTelefoneDto novoTelefoneDto, Cliente cliente) {
-        numeroTelefone = novoTelefoneDto.numeroTelefone();
-        ddd = novoTelefoneDto.ddd();
-        operadora = novoTelefoneDto.operadora();
+        this.numeroTelefone = novoTelefoneDto.numeroTelefone();
+        this.ddd = novoTelefoneDto.ddd();
+        this.operadora = novoTelefoneDto.operadora();
         this.cliente = cliente;
     }
 
-
-
-
     public void atualizarTelefone(AtualizacaoTelefone dto) {
-        if(dto.numeroTelefone() != null)
-            numeroTelefone = dto.numeroTelefone();
-        if(dto.ddd() != null)
-            ddd = dto.ddd();
-        if(dto.operadora() != null)
-            operadora = dto.operadora();
+        if (dto.numeroTelefone() != null) {
+            this.numeroTelefone = dto.numeroTelefone();
+        }
+        if (dto.ddd() != null) {
+            this.ddd = dto.ddd();
+        }
+        if (dto.operadora() != null) {
+            this.operadora = dto.operadora();
+        }
     }
 }

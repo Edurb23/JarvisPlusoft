@@ -36,15 +36,7 @@ public class PagamentoController {
         return ok(new ListagemPagamentoDto(pagamentos));
     }
 
-    @PostMapping
-    @Transactional
-    public ResponseEntity<DetalhesPagamento> post(@RequestBody NovoPagamento novoPagamento, UriComponentsBuilder uriComponentsBuilder) {
-        var pagamento = new Pagamento(novoPagamento);
-        pagamentoRepository.save(pagamento);
-        var uri = uriComponentsBuilder.path("/pagamento/{id}").buildAndExpand(pagamento.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DetalhesPagamento(pagamento));
 
-    }
 
     @DeleteMapping
     @Transactional
