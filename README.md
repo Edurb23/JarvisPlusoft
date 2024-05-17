@@ -29,7 +29,7 @@ mercado.
 
 # Melhorias
 
-
+ Adionamos nesse entrega os relacinamentos entre as tabelas e agora temos relacionamentos OneToMany , MaytoOne e MaytoMany no nosso projeto 
 
 
 
