@@ -191,7 +191,7 @@ DELETE
 
 ![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/01b3ed70-1fd4-468f-865c-11f8b6d1b26f)
 
-```
+
 **HTTP responses para POST**
 | Código | Descrição |
 |---|---|
