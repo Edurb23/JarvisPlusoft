@@ -33,10 +33,12 @@ o prazo final sera em novembro de 2024
 # Digramas
 
 ## Banco de dados
-![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/4e9dcd22-9d02-435c-80d9-18c5e1f4da94)
+![banco](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/52d9e4df-cf6c-473b-be59-9ba7eae9e2e8)
+
 
 ## Diagrama de classes
-![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/abc90169-c6c5-4b09-a37f-1e473d1321fb)
+![MicrosoftTeams-image (1)](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/8cc350d2-5b10-4afc-8c74-125d9b62b306)
+
 
 
 
@@ -124,40 +126,8 @@ DELETE
 
 **Exemplo Corpo de resposta**
 ```JSON
-[
-	{
-		"id": 953,
-		"nome": "Karina",
-		"cpf": "11020301515",
-		"rg": "1234567",
-		"datanascimento": "2000-04-11",
-		"senha": "karina123"
-	},
-	{
-		"id": 954,
-		"nome": "Jennie",
-		"cpf": "23600731092",
-		"rg": "453533395",
-		"datanascimento": "1996-01-16",
-		"senha": "JennieKim123"
-	},
-	{
-		"id": 956,
-		"nome": "Sana",
-		"cpf": "31082448095",
-		"rg": "416695188",
-		"datanascimento": "1996-12-29",
-		"senha": "SanaLikey123"
-	},
-	{
-		"id": 957,
-		"nome": "Jordan Terrell",
-		"cpf": "97297676020",
-		"rg": "345316344",
-		"datanascimento": "1996-07-13",
-		"senha": "wholelott@red123"
-	}
-]
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/40d5b135-f316-4045-8cb8-a70c702a137c)
+
 
 ```
 **HTTP responses para `GET`**
