@@ -260,8 +260,9 @@ Retorna um arquivo JSON vazio.
 `GET` /localhost:8080/telefone
 
 **Exemplo Corpo de resposta**
-![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/6fd9e3a3-0cd5-469a-8e75-1d6e8028f762)
-
+```JSON
+ COLOCAR IMAGEM
+```
 **HTTP responses para `GET`**
 | Código | Descrição |
 |---|---|
@@ -387,35 +388,8 @@ Retorna um arquivo JSON vazio.
 `GET` /localhost:8080/email
 
 **Exemplo Corpo de resposta**
-```JSON
-[
-	{
-		"id": 1,
-		"email": "Karina@gmail.com",
-		"dadosEmail": "Karina@gmail.com",
-		"statusEmail": "ativo"
-	},
-	{
-		"id": 2,
-		"email": "Jennie@gmail.com",
-		"dadosEmail": "Jennie@gmail.com",
-		"statusEmail": "ativo"
-	},
-	{
-		"id": 3,
-		"email": "Sana@hotmail.com",
-		"dadosEmail": "sana@hotmail.com",
-		"statusEmail": "ativo"
-	},
-	{
-		"id": 4,
-		"email": "playboiC@hotmail.com",
-		"dadosEmail": "playboiC@hotmail.com",
-		"statusEmail": "ativo"
-	}
-]
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/351669d1-002f-4287-8b4b-0270dcf831d9)
 
-```
 
 **HTTP responses para `GET`**
 | Código | Descrição |
@@ -425,6 +399,14 @@ Retorna um arquivo JSON vazio.
 | `404` | Registro pesquisado não encontrado (Not found)|
 | `500` | Internal server error|
 ---
+
+### Buscar_email
+`GET` /localhost:8080/email/{id}
+**Exemplo Corpo de resposta**
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/b4729427-2f5f-48e4-a4d5-f38d444a5db8)
+
+
+
 
 ### cadastrar_email
 
