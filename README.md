@@ -144,17 +144,8 @@ DELETE
   `GET` /localhost:8080/cliente/{id}
 
   **Exemplo Corpo de resposta**
-  ```JSON
-{
-	"id": 957,
-	"nome": "Jordan Terrell",
-	"cpf": "97297676020",
-	"rg": "345316344",
-	"datanascimento": "1996-07-13",
-	"senha": "wholelott@red123"
-}
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/3eec4f97-b7a8-4912-b9a4-3a8688ff3eec)
 
-```
 **HTTP responses para `GET`**
 | Código | Descrição |
 |---|---|
