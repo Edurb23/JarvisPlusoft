@@ -256,6 +256,9 @@ DELETE
 
 Retorna um arquivo JSON vazio.
 
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/005efd7c-5473-4f87-91c5-6a98cc88f52c)
+
+
 **Respostas que podem aparecer no DELETE :**
 
 | Código | Descrição |
