@@ -125,11 +125,11 @@ DELETE
 `GET` /localhost:8080/cliente
 
 **Exemplo Corpo de resposta**
-```JSON
+
 ![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/40d5b135-f316-4045-8cb8-a70c702a137c)
 
 
-```
+
 **HTTP responses para `GET`**
 | Código | Descrição |
 |---|---|
