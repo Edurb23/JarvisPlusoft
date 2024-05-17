@@ -29,7 +29,7 @@ mercado.
 
 # Melhorias
 
- Adionamos nesse entrega os relacinamentos entre as tabelas e agora temos relacionamentos OneToMany , MaytoOne e MaytoMany no nosso projeto 
+ Nesta entrega, adicionamos os relacionamentos entre as tabelas em nosso projeto. Agora, temos relacionamentos OneToMany, ManyToOne e ManyToMany. Além disso, refizemos o diagrama de classes para refletir essas mudanças
 
 
 
