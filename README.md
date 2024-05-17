@@ -260,28 +260,8 @@ Retorna um arquivo JSON vazio.
 `GET` /localhost:8080/telefone
 
 **Exemplo Corpo de resposta**
-```JSON
-[
-	{
-		"id": 1,
-		"numeroTelefone": "97684-9954",
-		"ddd": "11",
-		"operadora": "Vivo-Celular"
-	},
-	{
-		"id": 2,
-		"numeroTelefone": "98156-8733",
-		"ddd": "11",
-		"operadora": "Claro-Celular"
-	},
-	{
-		"id": 3,
-		"numeroTelefone": "96992-5122",
-		"ddd": "11",
-		"operadora": "Tim-Celular"
-	}
-]
-```
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/6fd9e3a3-0cd5-469a-8e75-1d6e8028f762)
+
 **HTTP responses para `GET`**
 | Código | Descrição |
 |---|---|
