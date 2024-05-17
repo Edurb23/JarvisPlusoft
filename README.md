@@ -418,7 +418,7 @@ Retorna um arquivo JSON vazio.
 
 ### cadastrar_email
 
-  `POST` /localhost:8080/email
+  `POST` http://localhost:8080/cliente/{id_cliente}/email
 
   **Atributos do request**
 |        Campo         |   Tipo   | Obrigatorio |  Descrição
@@ -432,11 +432,12 @@ Retorna um arquivo JSON vazio.
 ```JSON
 
 {
-    
-	 "email": "playboiC@hotmail.com",
-        "dadosEmail": "playboiC@hotmail.com",
-        "statusEmail": "ativo"
-    }
+	"email": "sana@gmail.com",
+    	"dadosEmail": "sana@gmail.com",
+    	"statusEmail": "ATIVO"
+
+		
+}
 
 ```
 
@@ -444,15 +445,8 @@ Retorna um arquivo JSON vazio.
 ---
 **Exemplo corpo de resposta**
 
-```JSON
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/c2f30f0a-e9af-4a69-b59d-2b785e0a8e10)
 
-{
-	"id": 4,
-	"email": "playboiC@hotmail.com",
-	"dadosEmail": "playboiC@hotmail.com",
-	"statusEmail": "ativo"
-}
-```
 **HTTP responses para POST**
 | Código | Descrição |
 |---|---|
@@ -475,11 +469,10 @@ Retorna um arquivo JSON vazio.
 ```JSON
 
 {
-	"email": "playboiC@hotmail.com",
-        "dadosEmail": "playboiC@hotmail.com",
-        "statusEmail": "inativo"
-	
-    }
+	"email": "JennieKim@gmail.com",
+	"dadosEmail": "jenniekim@gmail.com",
+	"statusEmail": "INATIVO"
+}
 
 ```
 
@@ -487,15 +480,8 @@ Retorna um arquivo JSON vazio.
 ---
 **Exemplo corpo de resposta**
 
-```JSON
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/47bccf77-ac4a-4d74-ba53-9e354df69388)
 
-{
-	"id": 4,
-	"email": "playboiC@hotmail.com",
-	"dadosEmail": "playboiC@hotmail.com",
-	"statusEmail": "inativo"
-}
-```
 
 **Respostas que podem aparecer no PUT :**
 | Código | Descrição |
@@ -512,6 +498,9 @@ Retorna um arquivo JSON vazio.
 `Delete` /localhost:8080/email/{id}
 
 Retorna um arquivo JSON vazio.
+
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/6491b9fc-7e05-42ce-b606-3feffbf08b6a)
+
 
 **Respostas que podem aparecer no DELETE :**
 
