@@ -37,7 +37,7 @@ Mais complexos, os relacionamentos ManyToMany foram configurados para representa
 
 Além dessas melhorias estruturais, também adicionamos validações nos campos dos DTOs (Data Transfer Objects). Essas validações garantem que os dados transmitidos entre as camadas do sistema sejam consistentes e atendam aos requisitos de integridade e formato, prevenindo erros e melhorando a robustez do sistema.
 
-Com estas modificações, nosso diagrama de classes foi completamente revisado e atualizado, refletindo com precisão as novas conexões e validações, garantindo que todos os stakeholders tenham uma visão clara e atualizada da estrutura do sistema. Este esforço não só aprimora a coerência e a integridade do nosso modelo de dados, mas também facilita futuras expansões e manutenções no sistema.
+
 
 
 
