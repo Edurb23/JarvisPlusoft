@@ -49,7 +49,8 @@ Com estas modificações, nosso diagrama de classes foi completamente revisado e
 
 
 ## Diagrama de classes
-![MicrosoftTeams-image (1)](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/8cc350d2-5b10-4afc-8c74-125d9b62b306)
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/001b013f-c3a0-4fa4-935b-26ad5b8e85f3)
+
 
 
 
@@ -275,9 +276,8 @@ Retorna um arquivo JSON vazio.
 `GET` /localhost:8080/telefone
 
 **Exemplo Corpo de resposta**
-```JSON
- COLOCAR IMAGEM
-```
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/afcd062f-f8d5-48e0-a9d0-bcbea8b9eb09)
+
 **HTTP responses para `GET`**
 | Código | Descrição |
 |---|---|
@@ -289,7 +289,7 @@ Retorna um arquivo JSON vazio.
 
 ### cadastrar_Telefone
 
-  `POST` /localhost:8080/telefone
+  `POST` http://localhost:8080/cliente/{Id_Cliente}/telefone
 
   **Atributos do request**
 |        Campo         |   Tipo   | Obrigatorio |  Descrição
@@ -304,7 +304,7 @@ Retorna um arquivo JSON vazio.
 
 {
     
-	 "numeroTelefone": "96992-5122",
+	"numeroTelefone": "96992-5122",
         "ddd": "11",
         "operadora": "Tim-Celular"
 	
@@ -316,15 +316,8 @@ Retorna um arquivo JSON vazio.
 ---
 **Exemplo corpo de resposta**
 
-```JSON
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/5b0f57a0-c087-4867-867a-8443e7960e63)
 
-{
-	"id": 3,
-	"numeroTelefone": "96992-5122",
-	"ddd": "11",
-	"operadora": "Tim-Celular"
-}
-```
 **HTTP responses para POST**
 | Código | Descrição |
 |---|---|
@@ -348,12 +341,10 @@ Retorna um arquivo JSON vazio.
 ```JSON
 
 {
-    
-	 "numeroTelefone": "96992-5122",
-        "ddd": "11",
-        "operadora": "Claro-Celular"
-	
-    }
+	 	"numeroTelefone": "96992-51221",
+     		"ddd": "11",
+     		"operadora": "Claro-Celular"
+}
 
 ```
 
@@ -361,15 +352,10 @@ Retorna um arquivo JSON vazio.
 ---
 **Exemplo corpo de resposta**
 
-```JSON
 
-{
-	"id": 3,
-	"numeroTelefone": "96992-5122",
-	"ddd": "11",
-	"operadora": "Claro-Celular"
-}
-```
+
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/9b641f50-72ce-4c72-8f9d-5241d16d0285)
+
 
 **Respostas que podem aparecer no PUT :**
 | Código | Descrição |
@@ -386,6 +372,9 @@ Retorna um arquivo JSON vazio.
 `Delete` /localhost:8080/telefone/{id}
 
 Retorna um arquivo JSON vazio.
+
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/92dc6b4a-2984-46a3-ba7d-0a35c6218989)
+
 
 **Respostas que podem aparecer no DELETE :**
 
@@ -527,89 +516,8 @@ Retorna um arquivo JSON vazio.
 `GET` /localhost:8080/endereco
 
 **Exemplo Corpo de resposta**
-```JSON
-[
-	{
-		"id": 52,
-		"nomeRua": "Rua Pereira Estéfano",
-		"numeroResidencia": "320",
-		"nomeBairro": "Vila da Saúde"
-	},
-	{
-		"id": 53,
-		"nomeRua": "Rua Doutor João Goulart",
-		"numeroResidencia": "20",
-		"nomeBairro": "ÁGUA RASA"
-	},
-	{
-		"id": 54,
-		"nomeRua": "Av Lins de vasconcelos",
-		"numeroResidencia": "1222",
-		"nomeBairro": "Aclimação"
-	},
-	{
-		"id": 55,
-		"nomeRua": "Rua da Gloria",
-		"numeroResidencia": "50",
-		"nomeBairro": "Liberdade"
-	},
-	{
-		"id": 56,
-		"nomeRua": "Rua da Gloria",
-		"numeroResidencia": "50",
-		"nomeBairro": "Liberdade"
-	},
-	{
-		"id": 57,
-		"nomeRua": "Rua frei caneca",
-		"numeroResidencia": "445",
-		"nomeBairro": "Consolação"
-	},
-	{
-		"id": 58,
-		"nomeRua": "Rua barão de campinas",
-		"numeroResidencia": "40",
-		"nomeBairro": "Bom Retiro"
-	},
-	{
-		"id": 1,
-		"nomeRua": "Rua curupace",
-		"numeroResidencia": "240",
-		"nomeBairro": "Mocca"
-	},
-	{
-		"id": 954,
-		"nomeRua": "Av Lins de vasconcelos",
-		"numeroResidencia": "1222",
-		"nomeBairro": "Aclimação"
-	},
-	{
-		"id": 952,
-		"nomeRua": "Rua Pereira Estéfano",
-		"numeroResidencia": "320",
-		"nomeBairro": "Vila da Saúde"
-	},
-	{
-		"id": 953,
-		"nomeRua": "Rua Doutor João Goulart",
-		"numeroResidencia": "20",
-		"nomeBairro": "ÁGUA RASA"
-	},
-	{
-		"id": 955,
-		"nomeRua": "Rua da Gloria",
-		"numeroResidencia": "50",
-		"nomeBairro": "Liberdade"
-	},
-	{
-		"id": 956,
-		"nomeRua": "Rua da Gloria",
-		"numeroResidencia": "50",
-		"nomeBairro": "Liberdade"
-	}
-]
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/dc367e5a-2593-48a8-991b-7b0579b1c4d6)
 
-```
 
 **HTTP responses para `GET`**
 | Código | Descrição |
@@ -622,7 +530,7 @@ Retorna um arquivo JSON vazio.
 
 ### cadastrar_endereco
 
-  `POST` /localhost:8080/enderco
+  `POST` http://localhost:8080/cliente/{Id_Cliente}/endereco
 
   **Atributos do request**
 |        Campo         |   Tipo   | Obrigatorio |  Descrição
@@ -636,27 +544,18 @@ Retorna um arquivo JSON vazio.
 ```JSON
 
 {
-    
-	"nomeRua": "Rua da Gloria",
-        "numeroResidencia": "50",
-        "nomeBairro": "Liberdade"
-    }
+    "nomeRua": "Avenida Faria Lima",
+    "numeroResidencia": "2500",
+    "nomeBairro": "Itaim Bibi"
+}
 
 ```
 
 **Status 200 ok**
 ---
 **Exemplo corpo de resposta**
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/9a1cceb8-222f-4fe7-928f-c392cbc308ce)
 
-```JSON
-
-{
-	"id": 956,
-	"nomeRua": "Rua da Gloria",
-	"numeroResidencia": "50",
-	"nomeBairro": "Liberdade"
-}
-```
 **HTTP responses para POST**
 | Código | Descrição |
 |---|---|
@@ -679,11 +578,11 @@ Retorna um arquivo JSON vazio.
 ```JSON
 
 {
-	"nomeRua": "Rua da Gloria",
-        "numeroResidencia": "100",
-        "nomeBairro": "Liberdade"
 	
-    }
+		"nomeRua": "Avenida Paulista",
+		"numeroResidencia": "1100",
+		"nomeBairro": "Bela Vista"
+}
 
 ```
 
@@ -691,15 +590,8 @@ Retorna um arquivo JSON vazio.
 ---
 **Exemplo corpo de resposta**
 
-```JSON
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/72282d58-aa78-400c-a47a-ae915a07790d)
 
-{
-	"id": 956,
-	"nomeRua": "Rua da Gloria",
-	"numeroResidencia": "100",
-	"nomeBairro": "Liberdade"
-}
-```
 
 **Respostas que podem aparecer no PUT :**
 | Código | Descrição |
@@ -716,6 +608,9 @@ Retorna um arquivo JSON vazio.
 `Delete` /localhost:8080/endereco/{id}
 
 Retorna um arquivo JSON vazio.
+
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/ef56e28d-95b2-41b5-acb0-f10d51f2bf72)
+
 
 **Respostas que podem aparecer no DELETE :**
 
@@ -736,147 +631,8 @@ Retorna um arquivo JSON vazio.
 `GET` /localhost:8080/produto
 
 **Exemplo Corpo de resposta**
-```JSON
-[
-	{
-		"id": 952,
-		"nomeProduto": "Camisa Branca lisa",
-		"categoriaProduto": "CAMISA",
-		"tamanhoProduto": "G",
-		"preco": 250.5,
-		"descricao": "Uma camissa branca de algodao."
-	},
-	{
-		"id": 953,
-		"nomeProduto": "Calça Jeans Reta",
-		"categoriaProduto": "CALCA",
-		"tamanhoProduto": "M",
-		"preco": 400.0,
-		"descricao": "Calça Jeans Reta."
-	},
-	{
-		"id": 954,
-		"nomeProduto": "Conjuto Moletom",
-		"categoriaProduto": "MOLETOM",
-		"tamanhoProduto": "M",
-		"preco": 350.0,
-		"descricao": "Conjuto Moletom com uma calça e um blusao com a logo."
-	},
-	{
-		"id": 955,
-		"nomeProduto": "Jaqueta Jeans Preta",
-		"categoriaProduto": "JAQUETA",
-		"tamanhoProduto": "GG",
-		"preco": 350.0,
-		"descricao": "Jaqueta."
-	},
-	{
-		"id": 956,
-		"nomeProduto": "Jaqueta Jeans Preta",
-		"categoriaProduto": "JAQUETA",
-		"tamanhoProduto": "GG",
-		"preco": 350.0,
-		"descricao": "Jaqueta Preta style 80s."
-	},
-	{
-		"id": 957,
-		"nomeProduto": "Regata com estampa",
-		"categoriaProduto": "REGATA",
-		"tamanhoProduto": "P",
-		"preco": 120.0,
-		"descricao": "Regata para o verao."
-	},
-	{
-		"id": 958,
-		"nomeProduto": "Conjuto de Aneis e pusleira",
-		"categoriaProduto": "ACESSORIOS",
-		"tamanhoProduto": "P",
-		"preco": 100.0,
-		"descricao": "Conjuto de Aneis e pusleira de aço."
-	},
-	{
-		"id": 959,
-		"nomeProduto": "Camiseta punk oversize",
-		"categoriaProduto": "CAMISETA",
-		"tamanhoProduto": "M",
-		"preco": 250.0,
-		"descricao": "Camiseta punk oversize branca"
-	},
-	{
-		"id": 102,
-		"nomeProduto": "Camisa Branca lisa",
-		"categoriaProduto": "CAMISA",
-		"tamanhoProduto": "G",
-		"preco": 250.5,
-		"descricao": "Uma camissa branca de algodao."
-	},
-	{
-		"id": 103,
-		"nomeProduto": "Calça Jeans Reta",
-		"categoriaProduto": "CALCA",
-		"tamanhoProduto": "M",
-		"preco": 400.0,
-		"descricao": "Calça Jeans Reta."
-	},
-	{
-		"id": 104,
-		"nomeProduto": "Conjuto Moletom",
-		"categoriaProduto": "MOLETOM",
-		"tamanhoProduto": "M",
-		"preco": 350.0,
-		"descricao": "Conjuto Moletom com uma calça e um blusao com a logo."
-	},
-	{
-		"id": 105,
-		"nomeProduto": "Jaqueta Jeans Preta",
-		"categoriaProduto": "JAQUETA",
-		"tamanhoProduto": "GG",
-		"preco": 350.0,
-		"descricao": "Jaqueta."
-	},
-	{
-		"id": 106,
-		"nomeProduto": "Jaqueta Jeans Preta",
-		"categoriaProduto": "JAQUETA",
-		"tamanhoProduto": "GG",
-		"preco": 350.0,
-		"descricao": "Jaqueta Preta style 80s."
-	},
-	{
-		"id": 107,
-		"nomeProduto": "Shorts Preto",
-		"categoriaProduto": "SHORTS",
-		"tamanhoProduto": "P",
-		"preco": 120.0,
-		"descricao": "Shorts preto para o verao."
-	},
-	{
-		"id": 108,
-		"nomeProduto": "Regata com estampa",
-		"categoriaProduto": "REGATA",
-		"tamanhoProduto": "P",
-		"preco": 120.0,
-		"descricao": "Regata para o verao."
-	},
-	{
-		"id": 109,
-		"nomeProduto": "Conjuto de Aneis e pusleira",
-		"categoriaProduto": "ACESSORIOS",
-		"tamanhoProduto": "P",
-		"preco": 100.0,
-		"descricao": "Conjuto de Aneis e pusleira de aço."
-	},
-	{
-		"id": 110,
-		"nomeProduto": "Camiseta punk oversize",
-		"categoriaProduto": "CAMISETA",
-		"tamanhoProduto": "M",
-		"preco": 250.0,
-		"descricao": "Camiseta punk oversize branca"
-	}
-]
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/96c8bb96-05a0-43c4-afa7-1d33d82a5e25)
 
-```
 **HTTP responses para `GET`**
 | Código | Descrição |
 |---|---|
@@ -886,22 +642,13 @@ Retorna um arquivo JSON vazio.
 | `500` | Internal server error|
 ---
 
-  ### Bucar_cliente 
+  ### Bucar_porID 
 
   `GET` /localhost:8080/produto/{id}
 
   **Exemplo Corpo de resposta**
-  ```JSON
-{
-	"id": 110,
-	"nomeProduto": "Camiseta punk oversize",
-	"categoriaProduto": "CAMISETA",
-	"tamanhoProduto": "M",
-	"preco": 250.0,
-	"descricao": "Camiseta punk oversize branca"
-}
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/9a5214df-d066-40db-8c53-e3f53a5c73d0)
 
-```
 **HTTP responses para `GET`**
 | Código | Descrição |
 |---|---|
@@ -911,9 +658,9 @@ Retorna um arquivo JSON vazio.
 | `500` | Internal server error|
 ---
 
-### Cadastrar_Cliente
+### Cadastrar_Produto
 
-  `POST` /localhost:8080/cliente/
+  `POST` /localhost:8080/produto
 
   **Atributos do request**
 |        Campo         |   Tipo   | Obrigatorio |  Descrição
@@ -930,30 +677,20 @@ Retorna um arquivo JSON vazio.
 ```JSON
 
 {
-    
-   	"nomeProduto": "Camiseta punk oversize",
-        "categoriaProduto": "CAMISETA",
-        "tamanhoProduto": "M",
-        "preco": 250.0,
-        "descricao": "Camiseta punk oversize branca"
-    }
+	"nomeProduto": "Moletom com Capuz",
+    "categoriaProduto": "MOLETOM",
+    "tamanhoProduto": "GG",
+    "preco": 129.90,
+    "descricao": "Moletom confortável e estiloso"
+}
 ```
 
 **Status 200 ok**
 ---
 **Exemplo corpo de resposta**
 
-```JSON
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/51982f29-62da-4153-95be-495008c389df)
 
-{
-	"id": 959,
-	"nomeProduto": "Camiseta punk oversize",
-	"categoriaProduto": "CAMISETA",
-	"tamanhoProduto": "M",
-	"preco": 250.0,
-	"descricao": "Camiseta punk oversize branca"
-}
-```
 **HTTP responses para POST**
 | Código | Descrição |
 |---|---|
@@ -963,7 +700,7 @@ Retorna um arquivo JSON vazio.
 | `500` | Internal server error|
 
 
-### Atualizar_Cliente
+### Atualizar_Produto
 
 `PUT` /localhost:8080/produto/{id}
 
@@ -980,11 +717,11 @@ Retorna um arquivo JSON vazio.
 
 {
     
-	"nomeProduto": "Camiseta punk oversize",
-	"categoriaProduto": "CAMISETA",
+	"nomeProduto": "Boné Trucker",
+	"categoriaProduto": "ACESSORIOS",
 	"tamanhoProduto": "P",
-	"preco": 250.0,
-	"descricao": "Camiseta punk oversize branca"
+	"preco": 19.9,
+	"descricao": "Boné estilo trucker com ajuste traseiro"
 	
     }
 ```
@@ -993,25 +730,17 @@ Retorna um arquivo JSON vazio.
 ---
 **Exemplo corpo de resposta**
 
-```JSON
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/7958718f-c3c9-44d5-9c28-f9cfa7be3f2f)
 
-{
-	"id": 110,
-	"nomeProduto": "Camiseta punk oversize",
-	"categoriaProduto": "CAMISETA",
-	"tamanhoProduto": "P",
-	"preco": 250.0,
-	"descricao": "Camiseta punk oversize branca"
-}
-```
 
-### Deletar_Usuário
+### Deletar_Produto
 
-`Delete` /localhost:8080/cliente/{id}
+`Delete` /localhost:8080/produto/{id}
 
 Retorna um arquivo JSON vazio.
 
-**Respostas que podem aparecer no DELETE :**
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/f735135a-e22d-4f0e-8d8c-9cab9e627911)
+
 
 | Código | Descrição |
 |---|---|
@@ -1030,25 +759,8 @@ Retorna um arquivo JSON vazio.
 `GET` /localhost:8080/pagamento
 
 **Exemplo Corpo de resposta**
-```JSON
-[
-	{
-		"id": 152,
-		"nome": "KARINA RODRIGUES",
-		"numero": 52994129913495,
-		"descricao": "CREDITO DIVIDO EM 2X",
-		"data": "2024-04-11"
-	},
-	{
-		"id": 153,
-		"nome": "CRISTIANO RODRIGUES",
-		"numero": 5290067142082335,
-		"descricao": "CREDITO DIVIDO EM 5X",
-		"data": "2024-02-14"
-	}
-]
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/1792e99f-8638-4840-83a3-eb1dd4fbaaad)
 
-```
 
 **HTTP responses para `GET`**
 | Código | Descrição |
@@ -1061,7 +773,7 @@ Retorna um arquivo JSON vazio.
 
 ### cadastrar_pagamento
 
-  `POST` /localhost:8080/pagamento
+  `POST` http://localhost:8080/produto/{Id_Produto}/pagamento
 
   **Atributos do request**
 |        Campo         |   Tipo   | Obrigatorio |  Descrição
@@ -1077,30 +789,20 @@ Retorna um arquivo JSON vazio.
 ```JSON
 
 {
-    
-	"nome": "CRISTIANO RODRIGUES",
-        "numero": 5290067142082335,
-        "descricao": "CREDITO DIVIDO EM 5X",
-        "data": "2024-02-14"
-        
-}
+	
+		"nome": "KARINA RODRIGUES",
+		"numero": 52994129913495,
+		"descricao": "CREDITO DIVIDO EM 2X",
+		"data": "2024-04-11"
+	}
 
 ```
 
 **Status 200 ok**
 ---
 **Exemplo corpo de resposta**
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/4d3f27ac-6a51-464a-95ac-108803d7b3e0)
 
-```JSON
-
-{
-	"id": 153,
-	"nome": "CRISTIANO RODRIGUES",
-	"numero": 5290067142082335,
-	"descricao": "CREDITO DIVIDO EM 5X",
-	"data": "2024-02-14"
-}
-```
 **HTTP responses para POST**
 | Código | Descrição |
 |---|---|
@@ -1109,13 +811,14 @@ Retorna um arquivo JSON vazio.
 | `404` | Registro pesquisado não encontrado (Not found)|
 | `500` | Internal server error|
 
-### Deletar_Email
+### Deletar_Pagemento
 
 `Delete` /localhost:8080/email/{id}
 
 Retorna um arquivo JSON vazio.
 
-**Respostas que podem aparecer no DELETE :**
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/036da3f2-8d69-42db-95a1-152b75b5e1fc)
+
 
 | Código | Descrição |
 |---|---|
@@ -1126,8 +829,12 @@ Retorna um arquivo JSON vazio.
 | `500` | Internal server error|
 ---
 
+## Produto_Cliente 
+
+`Put` http://localhost:8080/cliente/{ID_CLIENTE}/produto/{ID_PROUTO}
 
 
+![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/b541521c-c1af-49cc-8f22-0e7a5a016567)
 
 
 
