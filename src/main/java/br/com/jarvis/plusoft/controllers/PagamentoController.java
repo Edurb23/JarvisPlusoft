@@ -38,7 +38,7 @@ public class PagamentoController {
 
 
 
-    @DeleteMapping
+    @DeleteMapping("{id}")
     @Transactional
     public  ResponseEntity<Void> delete(@PathVariable("id") Long id){
         pagamentoRepository.deleteById(id);

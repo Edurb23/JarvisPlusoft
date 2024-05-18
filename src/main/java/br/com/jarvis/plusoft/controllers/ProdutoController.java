@@ -84,4 +84,13 @@ public class ProdutoController {
     }
 
 
+    @DeleteMapping("{id}")
+    @Transactional
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id){
+        produtoRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
+
+    }
+
+
 }
