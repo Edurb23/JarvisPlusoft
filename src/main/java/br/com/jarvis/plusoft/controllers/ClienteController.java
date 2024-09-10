@@ -4,13 +4,10 @@ import br.com.jarvis.plusoft.dto.clienteDto.AtualizacaoCliente;
 import br.com.jarvis.plusoft.dto.clienteDto.CadastroClienteDto;
 import br.com.jarvis.plusoft.dto.clienteDto.DetalhesClienteDto;
 import br.com.jarvis.plusoft.dto.clienteDto.ListagemClienteDtO;
-import br.com.jarvis.plusoft.dto.emailDto.DetalhesEmailDto;
-import br.com.jarvis.plusoft.dto.emailDto.NovoEmailDto;
 import br.com.jarvis.plusoft.dto.enderecolDto.DetalhesEndereco;
 import br.com.jarvis.plusoft.dto.enderecolDto.NovoEnderecoDto;
 import br.com.jarvis.plusoft.dto.telefoneDto.DetalhesTelefoneDto;
 import br.com.jarvis.plusoft.dto.telefoneDto.NovoTelefoneDto;
-import br.com.jarvis.plusoft.model.Email;
 import br.com.jarvis.plusoft.model.EnderecoCliente;
 import br.com.jarvis.plusoft.model.Telefone;
 import br.com.jarvis.plusoft.repository.*;
@@ -18,9 +15,9 @@ import br.com.jarvis.plusoft.model.Cliente;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -35,8 +32,7 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @Autowired
-    private EmailRepository emailRepository;
+
 
     @Autowired
     private ProdutoRepository produtoRepository;
@@ -47,6 +43,9 @@ public class ClienteController {
 
     @Autowired
     private EnderecoRepository enderecoRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping
     public ResponseEntity<List<ListagemClienteDtO>> get(Pageable pageable){
@@ -60,27 +59,16 @@ public class ClienteController {
         return ok(new DetalhesClienteDto(clientes));
     }
 
-    @PostMapping
+    @PostMapping("register")
     @Transactional
     public ResponseEntity<DetalhesClienteDto> create(@RequestBody @Valid CadastroClienteDto dto, UriComponentsBuilder builder){
-        var cliente = new Cliente(dto);
-        clienteRepository.save(cliente);
-        var url = builder.path("cliente/{id}").buildAndExpand(cliente.getId()).toUri();
-        return ResponseEntity.created(url).body(new DetalhesClienteDto(cliente));
+      var cliente = new Cliente(dto.nome(), dto.sobrenome(),dto.email(), passwordEncoder.encode(dto.password()), dto.cpf(), dto.dataNascimento(), dto.rg());
+      clienteRepository.save(cliente);
+      var uri = builder.path("/cliente/id").buildAndExpand(cliente.getId()).toUri();
+      return ResponseEntity.created(uri).body(new DetalhesClienteDto(cliente));
     }
 
-    /// EMAIL ///
-    @PostMapping("{id}/email")
-    @Transactional
-    public ResponseEntity<DetalhesEmailDto> post(@PathVariable("id") Long id,
-                                                 @RequestBody @Valid NovoEmailDto dto,
-                                                 UriComponentsBuilder uriBuilder){
-        var cliente = clienteRepository.getReferenceById(id);
-        var email = new Email(dto, cliente);
-        emailRepository.save(email);
-        var uri = uriBuilder.path("email/{id}").buildAndExpand(email.getId()).toUri();
-        return ResponseEntity.created(uri).body(new DetalhesEmailDto(email));
-    }
+
 
     // TELEFONE
     @PostMapping("{id}/telefone")
@@ -128,7 +116,7 @@ public class ClienteController {
     public ResponseEntity<ListagemClienteDtO> put(@PathVariable("id") Long id,
                                                   @RequestBody AtualizacaoCliente dto){
         var cliente = clienteRepository.getReferenceById(id);
-        cliente.atualizarAluno(dto);
+        cliente.atualizarCliente(dto);
         return ResponseEntity.ok(new ListagemClienteDtO(cliente));
     }
 
