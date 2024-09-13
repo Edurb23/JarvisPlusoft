@@ -45,7 +45,7 @@ public class TelefoneController {
     @Operation(summary = "GET de Telefones",
             description = "Puxa a lista de Telefones")
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Telefones achado Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = ListagemTelefoneDto.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
@@ -62,7 +62,7 @@ public class TelefoneController {
     })
 
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Telefone achado Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = DetalhesTelefoneDto.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
@@ -70,13 +70,6 @@ public class TelefoneController {
         var telefone = telefoneRepository.getReferenceById(id);
         return ok(new ListagemTelefoneDto(telefone));
     }
-
-
-
-
-
-
-
 
 
     @PutMapping("{id}")
@@ -88,7 +81,7 @@ public class TelefoneController {
     })
 
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Telefone atualizado Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = DetalhesTelefoneDto.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})

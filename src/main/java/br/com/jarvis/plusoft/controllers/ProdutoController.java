@@ -48,7 +48,7 @@ public class ProdutoController {
     @Operation(summary = "GET de Produtos ",
             description = "Puxa a lista de Produtos")
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Produtos achado Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = ListagemProdutoDto.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
@@ -66,7 +66,7 @@ public class ProdutoController {
     })
 
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Cliente achado Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = DetalhesProdutoDto.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
@@ -81,7 +81,7 @@ public class ProdutoController {
     @Operation(summary = "Cadastro de Produtos",
             description = "Cadastra um Produtos")
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Cadastro com Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = DetalhesProdutoDto.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
@@ -105,7 +105,7 @@ public class ProdutoController {
     @Operation(summary = "Cadastro de Pagamento",
             description = "Cadastra um Pagemento de uma compra")
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Cadastro com Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = DetalhesPagamento.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
@@ -131,7 +131,7 @@ public class ProdutoController {
     })
 
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Produto atualizado Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = DetalhesProdutoDto.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})

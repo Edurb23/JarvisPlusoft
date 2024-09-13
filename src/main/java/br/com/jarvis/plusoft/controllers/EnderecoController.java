@@ -44,7 +44,7 @@ public class EnderecoController {
     @Operation(summary = "GET de Endereços",
             description = "Puxa a lista de endereços cadastrados")
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Endereços achados Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = ListagemEnderecoDto.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
@@ -61,7 +61,7 @@ public class EnderecoController {
     })
 
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Endereço achado Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = DetalhesEndereco.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
@@ -83,7 +83,7 @@ public class EnderecoController {
     })
 
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Endereço atualizado Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = DetalhesEndereco.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})

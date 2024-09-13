@@ -38,7 +38,7 @@ public class AuthController {
     @Operation(summary = "lOGIN",
             description = "Efetua o login")
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Login efetuado com Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = DadosTokenDto.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})

@@ -39,7 +39,7 @@ public class PagamentoController {
     @Operation(summary = "GET de Pagamentos",
             description = "Puxa a lista de pagamentos feitos no site")
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Pagamentos achado Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = ListagemPagamentoDto.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
@@ -56,7 +56,7 @@ public class PagamentoController {
     })
 
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Pagamentos achado Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = DetalhesPagamento.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})

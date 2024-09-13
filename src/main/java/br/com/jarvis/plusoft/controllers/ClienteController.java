@@ -60,7 +60,7 @@ public class ClienteController {
     @Operation(summary = "GET de Cliente/Usuario",
             description = "Puxa a lista de clientes um Cliente/Usuario")
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Clientes achado Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = ListagemClienteDtO.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
@@ -114,7 +114,7 @@ public class ClienteController {
     @Operation(summary = "Cadastro de Telefone",
             description = "Cadastra um telefone do cliente")
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Cadastro com Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = DetalhesTelefoneDto.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
@@ -140,7 +140,7 @@ public class ClienteController {
     @Operation(summary = "Cadastro de Endereço",
             description = "Cadastra um endereço do cliente")
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Cadastro com Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = DetalhesEndereco.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
@@ -192,7 +192,7 @@ public class ClienteController {
     })
 
     @ApiResponses({@ApiResponse(responseCode = "201", description = "Cliente atualizado Sucesso", content =
-    @Content(schema = @Schema(implementation = DetalhesClienteDto.class), mediaType = "application/json")),
+    @Content(schema = @Schema(implementation = ListagemClienteDtO.class), mediaType = "application/json")),
             @ApiResponse(responseCode = "403", description = "Não Autorizado ou Token Inválido", content =
                     { @Content(schema = @Schema()) }),
             @ApiResponse(responseCode = "400", description = "Dados inválidos")})
