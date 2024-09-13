@@ -38,13 +38,14 @@ Mais complexos, os relacionamentos ManyToMany foram configurados para representa
 Além dessas melhorias estruturais, também adicionamos validações nos campos dos DTOs (Data Transfer Objects). Essas validações garantem que os dados transmitidos entre as camadas do sistema sejam consistentes e atendam aos requisitos de integridade e formato, prevenindo erros e melhorando a robustez do sistema.
 
 
-
+# Melhorias para sprint 3
+Nesta entrega, adicionamos segurança ao Spring com JWT, junto com autenticação e toda a documentação personalizada no Swagger. Além disso, removemos a tabela de e-mails para simplificar o processo de autenticação
 
 
 # Digramas
 
 ## Banco de dados
-![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/037fcfc2-ed3e-464c-b70f-ed8b20dcdbf8)
+![img.png](img.png)
 
 
 
@@ -74,11 +75,6 @@ Link para o Video: https://youtu.be/3B3Oq7kc3yE
 - [Atualizar telefone](#Atualizar_Telefone)
 - [Deletar telefone](#Deletar_Telefone)
 
-## Email
-- [Listar_email](#Listar_Email)
-- [Cadastrar email](#Cadastar_Email)
-- [Atualizar email](#Atualizar_Email)
-- [Deletar email](#Deletar_Email)
 
 ## Endereço
 - [Listar endereços](#listar_enderecos)
@@ -233,12 +229,14 @@ DELETE
 ```JSON
 
 {
-    
-	"nome": "Sana Minatozaki",
-	"cpf": "33344455566",
-	"rg": "135792468",
-	"dataNascimento": "1996-12-29",
-	"senha": "sana1234"
+
+  "nome": "Jordan",
+  "sobrenome": "Cater",
+  "email": "jordan@gmail.com",
+  "password": "1234",
+  "cpf": "17394937100",
+  "dataNascimento": "1990-05-15",
+  "rg": "790675360"
 }
 	
     }
@@ -248,8 +246,7 @@ DELETE
 ---
 **Exemplo corpo de resposta**
 
-![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/5ce180da-858a-4467-b3c6-2b5872e7db21)
-
+![img_1.png](img_1.png)
 
 ### Deletar_Usuário
 
@@ -387,129 +384,7 @@ Retorna um arquivo JSON vazio.
 | `500` | Internal server error|
 ---
 
-### Listar_Email 
 
-`GET` /localhost:8080/email
-
-**Exemplo Corpo de resposta**
-![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/351669d1-002f-4287-8b4b-0270dcf831d9)
-
-
-**HTTP responses para `GET`**
-| Código | Descrição |
-|---|---|
-| `200` | Requisição executada com sucesso (success)|
-| `400` | Bad request|
-| `404` | Registro pesquisado não encontrado (Not found)|
-| `500` | Internal server error|
----
-
-### Buscar_email
-`GET` /localhost:8080/email/{id}
-**Exemplo Corpo de resposta**
-
-
-![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/b4729427-2f5f-48e4-a4d5-f38d444a5db8)
-
-
-
-
-### cadastrar_email
-
-  `POST` http://localhost:8080/cliente/{id_cliente}/email
-
-  **Atributos do request**
-|        Campo         |   Tipo   | Obrigatorio |  Descrição
-|----------------------|----------|:-----------:|--------------------------------------------------|
-|  EMAIL             |  String  |     Sim     | Campo para inserir o email
-|  DADOS              |   String    |     Sim     | Campo para inserir os dados do email
-|  STATUS                  |   String    |     Sim     | Campo para inserir o status do email
-
-**Exemplo Corpo do request** 
-
-```JSON
-
-{
-	"email": "sana@gmail.com",
-    	"dadosEmail": "sana@gmail.com",
-    	"statusEmail": "ATIVO"
-
-		
-}
-
-```
-
-**Status 200 ok**
----
-**Exemplo corpo de resposta**
-
-![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/c2f30f0a-e9af-4a69-b59d-2b785e0a8e10)
-
-**HTTP responses para POST**
-| Código | Descrição |
-|---|---|
-| `200` | Requisição executada com sucesso (success)|
-| `400` | Bad request|
-| `404` | Registro pesquisado não encontrado (Not found)|
-| `500` | Internal server error|
-
-### atualizar_email
-
-`PUT` /localhost:8080/email/{id}
-
-  **Atributos do request**
-|        Campo         |   Tipo   | Obrigatorio |  Descrição
-|----------------------|----------|:-----------:|--------------------------------------------------|
-|  EMAIL             |  String  |     Sim     | Campo para inserir o email
-|  DADOS              |   String    |     Sim     | Campo para inserir os dados do email
-|  STATUS                  |   String    |     Sim     | Campo para inserir o status do email
-
-```JSON
-
-{
-	"email": "JennieKim@gmail.com",
-	"dadosEmail": "jenniekim@gmail.com",
-	"statusEmail": "INATIVO"
-}
-
-```
-
-**Status 200 ok**
----
-**Exemplo corpo de resposta**
-
-![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/47bccf77-ac4a-4d74-ba53-9e354df69388)
-
-
-**Respostas que podem aparecer no PUT :**
-| Código | Descrição |
-|---|---|
-| `204` | Requisição executada com sucesso (success)|
-| `400` | Erros de validação ou os campos informados não existem no sistema|
-| `404` | Registro pesquisado não encontrado (Not found)|
-| `405` | Método não implementado.|
-| `500` | Internal server error|
----
-
-### Deletar_Email
-
-`Delete` /localhost:8080/email/{id}
-
-Retorna um arquivo JSON vazio.
-
-![image](https://github.com/Edurb23/JarvisPlusoft/assets/105024461/6491b9fc-7e05-42ce-b606-3feffbf08b6a)
-
-
-**Respostas que podem aparecer no DELETE :**
-
-| Código | Descrição |
-|---|---|
-| `204` | Requisição executada com sucesso (success).|
-| `400` | Erros de validação ou os campos informados não existem no sistema|
-| `404` | Registro pesquisado não encontrado (Not found)|
-| `405` | Método não implementado.|
-| `500` | Internal server error|
----
 
 ### Listar_Endereco 
 
